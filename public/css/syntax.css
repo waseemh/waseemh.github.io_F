@@ -64,7 +64,7 @@
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
-
+.gist {font-size: 12px;}
 .gist-data {max-height: 400px; font-size: 13px;}
      .header-inner .widget{margin-left:0px;margin-right:0px}
     .Header h1{margin-bottom:0px}
