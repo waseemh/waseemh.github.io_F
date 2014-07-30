@@ -66,6 +66,7 @@
 .css .nt + .nt { color: #999; }
 .gist {font-size: 12px;}
 .gist-data {max-height: 400px; font-size: 13px;}
+.gist-data pre {  line-height: 1;}
      .header-inner .widget{margin-left:0px;margin-right:0px}
     .Header h1{margin-bottom:0px}
      .header-inner .Header .titlewrapper { padding: 0px 0px; }
