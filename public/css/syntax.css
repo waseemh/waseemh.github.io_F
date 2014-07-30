@@ -64,3 +64,10 @@
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
+
+.gist-data {max-height: 400px;}
+     .header-inner .widget{margin-left:0px;margin-right:0px}
+    .Header h1{margin-bottom:0px}
+     .header-inner .Header .titlewrapper { padding: 0px 0px; }
+    .header-inner .Header .descriptionwrapper { padding: 0 0px; } 
+    .Header .description{margin:0em 0 0px;padding:0 0px; font-size: 0.99em;}
