@@ -1,0 +1,38 @@
+# Dependencies
+markdown:         redcarpet
+redcarpet:
+  extensions: ["tables"]
+
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Waseem Hamshawi
+tagline:          'Test Automation, Selenium'
+url:              http://www.waseemh.com
+shorturl:         waseemh.com
+
+author:
+  name:           'Waseem Hamshawi'
+  url:            http://www.waseemh.com
+
+paginate:         1
+
+# Custom vars
+version:          1.0.0
+
+github:
+  repo:           github.com/waseemh/waseemh.github.io
+
+# This is the list of pages to include in the header of the website.
+pages_list:       
+  About: '/about/'
+  Archive: '/archive/'
+  Feed: '/atom.xml'
+
+# Allow URL Redirects: 
+#  * https://help.github.com/articles/redirects-on-github-pages
+gems:
+  - jekyll-redirect-from
