@@ -18,13 +18,13 @@ In this brief tutorial we are going to introduce the event handling mechanism in
 The events mechanism in WebDriver is composed of two major objects:
 
     EventFiringWebDriver - A wrapper of the normal WebDriver API but adds the support of event triggering.
-    WebDriverEventListener - An interface which listens and catches pre-defined events that EventFiringWebDriver instance will trigger.
+    WebDriverEventListener - An interface with pre-defined events that EventFiringWebDriver instance will trigger.
 
 ![Diagram of objects relation](/assets/eventdriver.png)
 
 Following the observer pattern, each EventFiringWebDriver instance holds a list of WebDriverEventListener objects. Whenever an event is triggered by WebDriver, all registered listeners will be notified of this event and each listener may react differently to each event.
 
-I'm not going to go over all supported events by WebDriver, since they are self-explanatory in WebDriver API documentation.
+I'm not going to go over all supported events by WebDriver, since they are self-explanatory in [WebDriver API](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/support/events/WebDriverEventListener.html) documentation.
  
 Our first step would be to initialize the EventFiringWebDriver based on the WebDriver instance we already use. In addition, we should create and register an event listener for the EventFiringWebDriver instance.
 
