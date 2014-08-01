@@ -291,7 +291,7 @@ tbody tr:nth-child(odd) th {
 }
 
 #title a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .masthead-title small {
