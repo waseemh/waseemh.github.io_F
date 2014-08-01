@@ -13,6 +13,8 @@ For example, I can use the On Exception event to take a screenshot of browser in
 
 In this brief tutorial we are going to introduce the event handling mechanism in WebDriver framework, show how to apply it in your tests and suggest several useful implementations.
 
+## Introduction
+
 The events mechanism in WebDriver is composed of two major objects:
 
     EventFiringWebDriver - A wrapper of the normal WebDriver API but adds the support of event triggering.
@@ -30,7 +32,7 @@ An example using FirefoxDriver:
 
 {% gist 7b38fd0ef11b74259a98 %}
  
-Creating Event Listeners
+## Creating Event Listeners
  
 After our event listener has been registered in driver, we need to provide implementation for the triggered events. WebDriver API provides two approaches to implement event listeners:
 
@@ -44,7 +46,7 @@ After our event listener has been registered in driver, we need to provide imple
 
 Both approaches lead to same result and it's up to you to choose, based on design consideration.
  
-Multiple Event Listeners
+## Multiple Event Listeners
 
 As we discussed before, each event-firing WebDriver may include multiple event listeners at the same time. When an event is fired, all registered listeners will be notified about it. For example:
 
@@ -58,7 +60,7 @@ Above example will produce the following output:
     Listener 2 - Driver navigated to:http://www.google.com
 
 
-Unregistering Event Listeners
+## Unregistering Event Listeners
 
 If you may need to disable the event listeners on your tests, you can remove the listener from the event-firing WebDriver instance by un-registering it. You may find such option very useful when you want to perform WebDriver operations silently.
 WebDriver API provides the following method for un-registering event listeners: public EventFiringWebDriver unregister(WebDriverEventListener eventListener) .
@@ -76,7 +78,7 @@ Above example will produce the following output (notice that Listener 1 wasn't n
     Listener 2 - Driver navigated to:http://www.yahoo.com
 
 
-Useful Implementations
+## Useful Implementations
 
 After you've successfully integrated the event-firing capability into your web tests, you should think about implementing event listeners according to your tests workflow and requirements. I'm going to list few suggestions which may be useful:
 
@@ -89,4 +91,4 @@ After you've successfully integrated the event-firing capability into your web t
 4) Test Statistics: Gather statistics about number of clicked elements, URL hits or changed values for each element.
 
 
-I hope that this small article introduced you to the event handling mechanism in WebDriver.
+I hope that this paper introduced thorougly you to the event handling mechanism in WebDriver.
