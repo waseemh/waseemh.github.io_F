@@ -91,4 +91,4 @@ After you've successfully integrated the event-firing capability into your web t
 4) Test Statistics: Gather statistics about number of clicked elements, URL hits or changed values for each element.
 
 
-I hope that this paper introduced thorougly you to the event handling mechanism in WebDriver.
+I hope that this paper introduced you thorougly to the event handling mechanism in WebDriver.
