@@ -12,10 +12,10 @@ Many BDD practitioners tend to underestimate the importance of writing high-qual
 
 Below are some general tips and personal insights which I would like to share. It may come to help in your next iteration or in refactoring of existing stories.
 
-__Note:__ Since most BDD frameworks today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
+__Note:__ Since most [BDD frameworks](http://java.dzone.com/articles/brief-comparison-bdd) today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
 
 
-![Diagram of objects relation](/assets/bdd-discuss.jpeg)
+![People talking BDD?](/assets/bdd-discuss.jpeg)
 
 ## Don't tie stories to technical details
 User stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
@@ -98,7 +98,7 @@ However, many story writers tend to overuse this feature. Ending up with numerou
 	GivenStories: precondition2,setupEnvironment
 	Given .. 
 
-Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even deprecated it).
+Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even [deprecated](http://blog.josephwilk.net/ruby/cucumber-waves-goodbye-to-givenscenario.html) it).
 
 __Note:__ GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
 
@@ -147,11 +147,12 @@ After:
 	When he logs in
 	Then he should be successfully authorized in system
 
-The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
+The new scenario describes what event is being performed (login), while the original scenario is composed of [UI steps](http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off) describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
 
 __Remember!__ clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
 
-In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
+In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). 
+The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
 
 ## Combine steps
 Following the previous two tips, we somehow may have a conflict. We want to keep the step implementation as specific and low-level as possible (code maintenance, re-usability), but in the same time we want to compose declarative scenarios and describe them in high-level steps (readability, collaboration).
@@ -167,7 +168,7 @@ For example, we can create a composite step for defining the login procedure, ba
 	When he clicks on "Login" button
 	}
 
-Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in JBehave BDD framework. Other frameworks may require different syntax for achieving the same.
+Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in [JBehave BDD framework](http://jbehave.org). Other frameworks may require different syntax for achieving the same.
 
 Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
 
