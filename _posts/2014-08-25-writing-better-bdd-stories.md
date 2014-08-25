@@ -19,8 +19,21 @@ __Note:__ Since most BDD frameworks today support [Gherkin](http://docs.behat.or
 
 ## Don't tie stories to technical details
 User stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
-For example: in web-based stories, you should definitely not use CSS selectors or HTML tags in steps. In stories with database manipulation, you should not explicitly describe the SQL queries or tables involved.
+
+For example: in web-based stories, you should definitely not use CSS selectors or HTML tags in steps. In stories with database operations, you should not explicitly describe the SQL queries or tables involved.
 You should hide these technical details in steps' implementation. Scenarios should be described in high-level and understood by non-technical personnel. 
+
+A very technical story:
+
+	Given the user is on main page
+	When he clicks on button with CSS selector "div ol>li p" 
+	Then latest 20 entries from table "tbl.products" should be selected
+	
+A non-technical and collaborative story:
+
+	Given the user is on main page
+	When he requests "Latest Products" section
+	Then latest 20 products should be displayed
 
 ## Avoid dependency between scenarios
 Scenarios should be self-contained. Dependency between sequential scenarios may lead to readability and maintenance issues. 
