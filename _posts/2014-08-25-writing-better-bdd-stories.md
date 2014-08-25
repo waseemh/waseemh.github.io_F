@@ -82,21 +82,24 @@ GivenStories can be useful when you have complex scenarios which include a set o
 
 However, many story writers tend to overuse this feature. Ending up with numerous GivenStories definitions in a story file may affect the readability of the scenarios and make them hard to follow.
 
+	!-- A GivenStory --!
 	precondition1:
 	Given ...
 	And ...
-	And...
+	And ...
 	
 	!-- A precondition to entire story --!
 	GivenStories: precondition1
 	
-	Scenario: Example of scenario with precondition as GivenStories    
+	Scenario: Example of scenario with precondition as GivenStories 
+	!-- A precondition to scenario --!   
 	GivenStories: precondition2,setupEnvironment
-	Given .. 
+	Given ...
 	
-	Scenario: Another Example of scenario with precondition as GivenStories    
-	GivenStories: precondition2,setupEnvironment
-	Given .. 
+	Scenario: Another example of scenario with precondition as GivenStories
+	!-- A precondition to scenario --!       
+	GivenStories: precondition3,setupEnvironment
+	Given ...
 
 Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even [deprecated](http://blog.josephwilk.net/ruby/cucumber-waves-goodbye-to-givenscenario.html) it).
 
