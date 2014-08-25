@@ -5,7 +5,8 @@ comments: true
 permalink: writing-better-bdd-stories
 ---
 
-[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality.
+[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality. 
+
 Story in BDD can describe such aspects in a semi-formal language which is well-understood by all parties.
 Many BDD practitioners tend to underestimate the importance of writing high-quality stories. Others are not even familiar with the abilities of BDD framework and tools, and what they have to offer for expressing better stories. It may eventually harm the implementation of methodology and may result, for example, in improper definition of requirements. This is why I think it's important to put extra effort into this process and produce better stories.
 
@@ -59,7 +60,8 @@ When the number of stories increases over time, there is a need to manage all th
 Most BDD frameworks can filter stories or scenarios based on meta parameters, allowing you to skip irrelevant scenarios in current context.
 
 ## Don't overuse or misuse GivenStories
-GivenStories are reusable stories (more like a set of steps) used as prerequisites for more specific user stories. Steps defined in GivenStories are called before their associated story or scenario is.
+GivenStories are reusable stories (more like a set of steps) used as prerequisites for more specific user stories. Steps defined in GivenStories are called before their associated story or scenario is. 
+
 GivenStories can be useful when you have complex scenarios which include a set of precondition steps. Such steps can be isolated into a new story, and then can be invoked from other stories or scenarios using the GivenStories keyword. It greatly improves the maintainability of user stories and empowers the reuse of common precondition steps (DRY).
 
 However, many story writers tend to overuse this feature. Ending up with numerous GivenStories definitions in a story file may affect the readability of the scenarios and make them hard to follow.
