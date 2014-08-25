@@ -93,12 +93,6 @@ Composite steps do not include any implementation, as they only define which sma
 
 Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
 
-## Settle on the language
-Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
-
-Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
-
-
 ## Use tabular representation for multiple parameters
 Scenarios may include multiple parameters or complex data which may not fit into a single step properly. Expressing such parameters in a tabular format makes your scenarios much readable and isolates the scenario's steps from their actual input.
 
@@ -159,20 +153,8 @@ Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumb
 
 __Note:__ GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
 
-## Use "And"s as steps
-Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
-For example, let's break down this scenario:
+## Settle on the language
+Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
 
-Before:
-
-	Scenario: Remove a product from cart
-	Given the user is on main page and he is logged in and shopping cart is not empty
-	......
+Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
 	
-After:
-
-	Scenario: Remove a product from cart
-	Given the user is on main page
-	And he is logged in
-	And shopping cart is not empty
-	.....
