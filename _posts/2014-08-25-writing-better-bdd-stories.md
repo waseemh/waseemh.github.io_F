@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Writing Better BDD Stories "
+comments: true
+permalink: writing-better-bdd-stories
+---
+
 BDD (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality.
 Story in BDD can describe such aspects in a semi-formal language which is well-understood by all parties.
 Many BDD practitioners tend to underestimate the importance of writing high-quality stories. Others are not even familiar with the abilities of BDD framework and tools, and what they have to offer for expressing better stories. It may eventually harm the implementation of methodology and may result, for example, in improper definition of requirements. This is why I think it's important to put extra effort into this process and produce better stories.
