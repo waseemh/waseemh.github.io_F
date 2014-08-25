@@ -26,12 +26,14 @@ You can test your stories' dependency by changing the order of scenarios and ver
 Scenarios may include multiple parameters or complex data which may not fit into a single step properly. Expressing such parameters in a tabular format makes your scenarios much readable and isolates the scenario's steps from their actual input.
 
 Before:
+
 	Given the user is in products section
 	When he selects the products: 1GB RAM (quantity=1), HDMI Cable (quantity=3), Rechargeable Batteries (quantity=2)
 	And he adds them to shopping cart
 	Then shopping cart should be updated
 
 After:
+
 	Given the user is in products section
 	When he selects the following products:
 	|Product|Quantity| 
