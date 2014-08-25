@@ -13,6 +13,9 @@ Below are some general tips and personal insights which I would like to share. I
 
 Note: Since most BDD frameworks today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
 
+
+![Diagram of objects relation](/assets/bdd-discuss.jpeg)
+
 ## Don't tie stories to technical details
 User stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
 For example: in web-based stories, you should definitely not use CSS selectors or HTML tags in steps. In stories with database manipulation, you should not explicitly describe the SQL queries or tables involved.
@@ -86,11 +89,13 @@ Avoid declaring multiple "And"s which belong to the same step. Instead, split th
 For example, let's break down this scenario:
 
 Before:
+
 	Scenario: Remove a product from cart
 	Given the user is on main page and he is logged in and shopping cart is not empty
 	......
 	
 After:
+
 	Scenario: Remove a product from cart
 	Given the user is on main page
 	And he is logged in
@@ -104,6 +109,7 @@ After:
 A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. Let's take a look at following scenario in two different representations:
 
 Before:
+
 	Scenario: Successful user login
 	Given the user is in the login page
 	When he fills username text field with "sammy"
@@ -114,6 +120,7 @@ Before:
 	And a new link should appear with text "Welcome Sammy!"
 
 After:
+
 	Scenario: Successful user login
 	Given the user is in the login page
 	And he has valid login information
