@@ -103,7 +103,7 @@ However, many story writers tend to overuse this feature. Ending up with numerou
 
 Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even [deprecated](http://blog.josephwilk.net/ruby/cucumber-waves-goodbye-to-givenscenario.html) it).
 
-__Note:__ GivenStories should not be used as a setup for each scenario in story. You should use [__"Backgrounds"__](http://docs.behat.org/en/latest/guides/1.gherkin.html#backgrounds) for this purpose.
+__Note:__ GivenStories should not be used as a setup for each scenario in story. You should use [Backgrounds](http://docs.behat.org/en/latest/guides/1.gherkin.html#backgrounds) for this purpose.
 
 ## Use "And"s as steps
 Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
