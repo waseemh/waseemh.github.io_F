@@ -82,9 +82,9 @@ However, many story writers tend to overuse this feature. Ending up with numerou
 	GivenStories: precondition2,setupEnvironment
 	Given .. 
 
-Moreover, GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
+Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even deprecated it).
 
-Note: Many BDD frameworks don't support GivenStories in story syntax (Cucumber has even deprecated it).
+Note: GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
 
 ## Use "And"s as steps
 Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
@@ -105,10 +105,12 @@ After:
 	.....
 
 ## Break down complex steps implementation
- Don't let steps in scenarios spread over and cover too much functionality. Make sure to break down steps with complex implementation into several smaller steps. You should define steps which fulfill a very specific functionality in system. Such steps can be reusable in other scenarios and are less hard to maintain.  As a rule of thumb, step implementation should not include more than few lines of codes.
+ Don't let steps in scenarios spread over and cover too much functionality. Make sure to break down steps with complex implementation into several smaller steps. You should define steps which fulfill a very specific functionality in system. Such steps can be reusable in other scenarios and are less hard to maintain.  
+ As a rule of thumb, step implementation should not include more than few lines of codes.
 
 ## Less "How", more "What" (Imperative vs Declarative)
-A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. Let's take a look at following scenario in two different representations:
+A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
+Let's take a look at following scenario in two different representations:
 
 Before:
 
