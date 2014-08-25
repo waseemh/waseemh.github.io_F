@@ -18,7 +18,7 @@ __Note:__ Since most [BDD frameworks](http://java.dzone.com/articles/brief-compa
 ![People talking BDD?](/assets/bdd-discuss.jpeg)
 
 ## Don't tie stories to technical details
-User stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
+Stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
 
 For example: in web-based stories, you should definitely not use CSS selectors or HTML tags in steps. In stories with database operations, you should not explicitly describe the SQL queries or tables involved.
 You should hide these technical details in steps' implementation. Scenarios should be described in high-level and understood by non-technical personnel. 
@@ -76,9 +76,9 @@ When the number of stories increases over time, there is a need to manage all th
 Most BDD frameworks can filter stories or scenarios based on meta parameters, allowing you to skip irrelevant scenarios in current context.
 
 ## Don't overuse or misuse GivenStories
-GivenStories are reusable stories (more like a set of steps) used as prerequisites for more specific user stories. Steps defined in GivenStories are called before their associated story or scenario is. 
+GivenStories are reusable stories (more like a set of steps) used as prerequisites for more specific stories. Steps defined in GivenStories are called before their associated story or scenario is. 
 
-GivenStories can be useful when you have complex scenarios which include a set of precondition steps. Such steps can be isolated into a new story, and then can be invoked from other stories or scenarios using the GivenStories keyword. It greatly improves the maintainability of user stories and empowers the reuse of common precondition steps (DRY).
+GivenStories can be useful when you have complex scenarios which include a set of precondition steps. Such steps can be isolated into a new story, and then can be invoked from other stories or scenarios using the GivenStories keyword. It greatly improves the maintainability of stories and empowers the reuse of common precondition steps (DRY).
 
 However, many story writers tend to overuse this feature. Ending up with numerous GivenStories definitions in a story file may affect the readability of the scenarios and make them hard to follow.
 
@@ -125,7 +125,7 @@ After:
  As a rule of thumb, step implementation should not include more than few lines of codes.
 
 ## Less "How", more "What" (Imperative vs Declarative)
-A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
+A story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
 Let's take a look at following scenario in two different representations:
 
 Before:
