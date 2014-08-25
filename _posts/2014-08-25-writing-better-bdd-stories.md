@@ -42,7 +42,7 @@ __Remember!__ stories are read and reviewed by other team members or stakeholder
 
 You can test your stories' dependency by changing the order of scenarios and verify they still function as before. 
 
-## Use tabular representation for multiple parameters
+## Use tabular representation for complex input
 Scenarios may include multiple parameters or complex data which may not fit into a single step properly. Expressing such parameters in a tabular format makes your scenarios much readable and isolates the scenario's steps from their actual input.
 
 Before:
