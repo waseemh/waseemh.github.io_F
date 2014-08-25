@@ -153,6 +153,24 @@ Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumb
 
 __Note:__ GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
 
+## Use "And"s as steps
+Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
+For example, let's break down this scenario:
+
+Before:
+
+	Scenario: Remove a product from cart
+	Given the user is on main page and he is logged in and shopping cart is not empty
+	......
+	
+After:
+
+	Scenario: Remove a product from cart
+	Given the user is on main page
+	And he is logged in
+	And shopping cart is not empty
+	.....
+
 ## Settle on the language
 Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
 
