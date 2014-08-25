@@ -64,11 +64,11 @@ After:
 	Then shopping cart should be updated
 
 ## Use meta parameters/tags
-When the number of stories increases over time, there is a need to manage all this amount of information and textual content. Using meta parameters (or tags), you can organize stories based on different criteria and label them under categories, both at story and scenario level.
+When the number of stories increases over time, there is a need to manage all this amount of information and textual content. Using meta parameters or tags (annotated by __@__ character), you can organize stories based on different criteria and label them under categories, both at story and scenario level.
 
 	Scenario: Login to system with permissions for users management
 	@category permission 
-	@scope sanity  
+	@type sanity  
 	Given I am on login page
 	When I login with administrator credentials
 	Then "User Management" section should be accessible
@@ -125,7 +125,7 @@ After:
  As a rule of thumb, step implementation should not include more than few lines of codes.
 
 ## Less "How", more "What" (Imperative vs Declarative)
-A story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
+A story should not emphasis "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
 Let's take a look at following scenario in two different representations:
 
 Before:
@@ -170,10 +170,10 @@ For example, we can create a composite step for defining the login procedure, ba
 
 Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in [JBehave BDD framework](http://jbehave.org). Other frameworks may require different syntax for achieving the same.
 
-Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
+Notice how by combining small steps into one composite step, we insure that stories are collaborative and maintainable at the same time.
 
 ## Settle on the language
-Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
+Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative stories which can be well-understood among both technical and non-technical members in your domain.
 
 Such process should be conducted with other team members (from different roles), and may require several revisions until the language is well-defined and agreed-on.
 	
