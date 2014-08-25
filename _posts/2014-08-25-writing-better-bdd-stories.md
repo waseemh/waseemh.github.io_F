@@ -5,7 +5,7 @@ comments: true
 permalink: writing-better-bdd-stories
 ---
 
-[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality. 
+[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers, business users and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality. 
 
 Story in BDD can describe such aspects in a semi-formal language which is well-understood by all parties.
 
