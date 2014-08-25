@@ -32,7 +32,7 @@ A very technical story:
 A non-technical and collaborative story:
 
 	Given the user is on main page
-	When he requests "Latest Products" section
+	When he asks for latest products
 	Then latest 20 products should be displayed
 
 ## Avoid dependency between scenarios
@@ -41,6 +41,63 @@ Scenarios should be self-contained. Dependency between sequential scenarios may 
 __Remember!__ stories are read and reviewed by other team members or stakeholders, thus they are subject to changes in the future. It may not be clear to other people that scenarios are dependent.
 
 You can test your stories' dependency by changing the order of scenarios and verify they still function as before. 
+
+## Break down complex steps implementation
+ Don't let steps in scenarios spread over and cover too much functionality. Make sure to break down steps with complex implementation into several smaller steps. You should define steps which fulfill a very specific functionality in system. Such steps can be reusable in other scenarios and are less hard to maintain.  
+ As a rule of thumb, step implementation should not include more than few lines of codes.
+
+## Less "How", more "What" (Imperative vs Declarative)
+A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
+Let's take a look at following scenario in two different representations:
+
+Before:
+
+	Scenario: Successful user login
+	Given the user is in the login page
+	When he fills username text field with "sammy"
+	And he fills password text field with "mypass"
+	And he fills passphrase text field with "passphrase1" 
+	And he clicks on "Login" button
+	Then a new message should appear with text "Login was successful"
+	And a new link should appear with text "Welcome Sammy!"
+
+After:
+
+	Scenario: Successful user login
+	Given the user is in the login page
+	And he has valid login information
+	When he logs in
+	Then he should be successfully authorized in system
+
+The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
+
+__Remember!__ clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
+
+In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
+
+## Combine steps
+Following the previous two tips, we somehow may have a conflict. We want to keep the step implementation as specific and low-level as possible (code maintenance, re-usability), but in the same time we want to compose declarative scenarios and describe them in high-level steps (readability, collaboration).
+
+We can solve this conflict by grouping small steps into one composite step.
+For example, we can create a composite step for defining the login procedure, based on much smaller steps.
+
+	@When("user logs in")
+	@Composite(steps = {
+	When he fills username text field with "sammy"
+	When he fills password text field with "mypass"
+	When he fills passphrase text field with "passphrase1" 
+	When he clicks on "Login" button
+	}
+
+Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in JBehave BDD framework. Other frameworks may require different syntax for achieving the same.
+
+Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
+
+## Settle on the language
+Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
+
+Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
+
 
 ## Use tabular representation for multiple parameters
 Scenarios may include multiple parameters or complex data which may not fit into a single step properly. Expressing such parameters in a tabular format makes your scenarios much readable and isolates the scenario's steps from their actual input.
@@ -119,60 +176,3 @@ After:
 	And he is logged in
 	And shopping cart is not empty
 	.....
-
-## Break down complex steps implementation
- Don't let steps in scenarios spread over and cover too much functionality. Make sure to break down steps with complex implementation into several smaller steps. You should define steps which fulfill a very specific functionality in system. Such steps can be reusable in other scenarios and are less hard to maintain.  
- As a rule of thumb, step implementation should not include more than few lines of codes.
-
-## Less "How", more "What" (Imperative vs Declarative)
-A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. 
-Let's take a look at following scenario in two different representations:
-
-Before:
-
-	Scenario: Successful user login
-	Given the user is in the login page
-	When he fills username text field with "sammy"
-	And he fills password text field with "mypass"
-	And he fills passphrase text field with "passphrase1" 
-	And he clicks on "Login" button
-	Then a new message should appear with text "Login was successful"
-	And a new link should appear with text "Welcome Sammy!"
-
-After:
-
-	Scenario: Successful user login
-	Given the user is in the login page
-	And he has valid login information
-	When he logs in
-	Then he should be successfully authorized in system
-
-The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
-
-__Remember!__ clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
-
-In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
-
-## Combine steps
-Following the previous two tips, we somehow may have a conflict. We want to keep the step implementation as specific and low-level as possible (code maintenance, re-usability), but in the same time we want to compose declarative scenarios and describe them in high-level steps (readability, collaboration).
-
-We can solve this conflict by grouping small steps into one composite step.
-For example, we can create a composite step for defining the login procedure, based on much smaller steps.
-
-	@When("user logs in")
-	@Composite(steps = {
-	When he fills username text field with "sammy"
-	When he fills password text field with "mypass"
-	When he fills passphrase text field with "passphrase1" 
-	When he clicks on "Login" button
-	}
-
-Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in JBehave BDD framework. Other frameworks may require different syntax for achieving the same.
-
-Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
-
-## Settle on the language
-Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
-
-Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
-
