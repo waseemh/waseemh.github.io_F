@@ -25,7 +25,7 @@ You should hide these technical details in steps' implementation. Scenarios shou
 ## Avoid dependency between scenarios
 Scenarios should be self-contained. Dependency between sequential scenarios may lead to readability and maintenance issues. 
 
-	__Remember!__ stories are read and reviewed by other team members or stakeholders, thus they are subject to changes in the future. It may not be clear to other people that scenarios are dependent.
+__Remember!__ stories are read and reviewed by other team members or stakeholders, thus they are subject to changes in the future. It may not be clear to other people that scenarios are dependent.
 
 You can test your stories' dependency by changing the order of scenarios and verify they still function as before. 
 
@@ -136,7 +136,7 @@ After:
 
 The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
 
-	Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
+__Remember!__ clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
 
 In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
 
