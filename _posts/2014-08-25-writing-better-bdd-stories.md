@@ -129,7 +129,8 @@ After:
 	When he logs in
 	Then he should be successfully authorized in system
 
-The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be.
+The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
+
 In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
 
 ## Combine steps
@@ -150,5 +151,6 @@ Notice how by combining small steps into one composite step, we insure that user
 
 ## Settle on the language
 Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders beforehand will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
+
 Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
 
