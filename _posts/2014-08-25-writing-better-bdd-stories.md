@@ -11,10 +11,9 @@ Story in BDD can describe such aspects in a semi-formal language which is well-u
 
 Many BDD practitioners tend to underestimate the importance of writing high-quality stories. Others are not even familiar with the abilities of BDD framework and tools, and what they have to offer for expressing better stories. It may eventually harm the implementation of methodology and may result, for example, in improper definition of requirements. This is why I think it's important to put extra effort into this process and produce better stories.
 
-Below are some general tips and personal insights which I would like to share. It may come to help in your next iteration or in refactoring of existing stories.
+Below are some general tips, concepts and personal insights which I would like to share. They may be helpful in your next iteration of story writing or refactoring of existing stories.
 
-__Note:__ Since most [BDD frameworks](http://java.dzone.com/articles/brief-comparison-bdd) today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
-
+__Note:__ Since most [BDD frameworks](http://java.dzone.com/articles/brief-comparison-bdd) today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we'll be adapting it too in this article. Though, many sections are also applicable for other story syntax.
 
 ![People talking BDD?](/assets/bdd-discuss.jpeg)
 
@@ -176,5 +175,5 @@ Notice how by combining small steps into one composite step, we insure that user
 ## Settle on the language
 Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
 
-Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
+Such process should be conducted with other team members (from different roles), and may require several revisions until the language is well-defined and agreed-on.
 	
