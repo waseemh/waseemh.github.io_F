@@ -142,6 +142,7 @@ In other terminology, the original and new scenarios are imperative and declarat
 
 ## Combine steps
 Following the previous two tips, we somehow may have a conflict. We want to keep the step implementation as specific and low-level as possible (code maintenance, re-usability), but in the same time we want to compose declarative scenarios and describe them in high-level steps (readability, collaboration).
+
 We can solve this conflict by grouping small steps into one composite step.
 For example, we can create a composite step for defining the login procedure, based on much smaller steps.
 
@@ -154,10 +155,11 @@ For example, we can create a composite step for defining the login procedure, ba
 	}
 
 Composite steps do not include any implementation, as they only define which smaller steps they contain. Above example is used to define composite steps in JBehave BDD framework. Other frameworks may require different syntax for achieving the same.
+
 Notice how by combining small steps into one composite step, we insure that user stories are collaborative and maintainable at the same time.
 
 ## Settle on the language
-Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders beforehand will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
+Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders __beforehand__ will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
 
 Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
 
