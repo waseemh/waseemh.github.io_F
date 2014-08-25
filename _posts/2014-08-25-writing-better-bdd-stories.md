@@ -12,7 +12,7 @@ Many BDD practitioners tend to underestimate the importance of writing high-qual
 
 Below are some general tips and personal insights which I would like to share. It may come to help in your next iteration or in refactoring of existing stories.
 
-_Note:_ Since most BDD frameworks today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
+__Note:__ Since most BDD frameworks today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
 
 
 ![Diagram of objects relation](/assets/bdd-discuss.jpeg)
@@ -84,7 +84,7 @@ However, many story writers tend to overuse this feature. Ending up with numerou
 
 Moreover, many BDD frameworks don't support GivenStories in story syntax (Cucumber has even deprecated it).
 
-_Note:_ GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
+__Note:__ GivenStories should not be used as a setup for each scenario in story. You should use "Background" keyword for this purpose.
 
 ## Use "And"s as steps
 Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
