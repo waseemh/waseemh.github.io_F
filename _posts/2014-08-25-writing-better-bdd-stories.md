@@ -23,7 +23,10 @@ For example: in web-based stories, you should definitely not use CSS selectors o
 You should hide these technical details in steps' implementation. Scenarios should be described in high-level and understood by non-technical personnel. 
 
 ## Avoid dependency between scenarios
-Scenarios should be self-contained. Dependency between sequential scenarios may lead to readability and maintenance issues. __Remember!__ stories are read and reviewed by other team members or stakeholders, thus they are subject to changes in the future. It may not be clear to other people that scenarios are dependent.
+Scenarios should be self-contained. Dependency between sequential scenarios may lead to readability and maintenance issues. 
+
+	__Remember!__ stories are read and reviewed by other team members or stakeholders, thus they are subject to changes in the future. It may not be clear to other people that scenarios are dependent.
+
 You can test your stories' dependency by changing the order of scenarios and verify they still function as before. 
 
 ## Use tabular representation for multiple parameters
@@ -93,7 +96,7 @@ For example, let's break down this scenario:
 Before:
 
 	Scenario: Remove a product from cart
-	Given the user is on main page __and__ he is logged in __and__ shopping cart is not empty
+	Given the user is on main page and he is logged in and shopping cart is not empty
 	......
 	
 After:
@@ -131,7 +134,9 @@ After:
 	When he logs in
 	Then he should be successfully authorized in system
 
-The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. __Remember!__ clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
+The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. 
+
+	Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be. 
 
 In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
 
