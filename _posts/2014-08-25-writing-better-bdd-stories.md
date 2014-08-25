@@ -5,13 +5,13 @@ comments: true
 permalink: writing-better-bdd-stories
 ---
 
-BDD (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality.
+[BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality.
 Story in BDD can describe such aspects in a semi-formal language which is well-understood by all parties.
 Many BDD practitioners tend to underestimate the importance of writing high-quality stories. Others are not even familiar with the abilities of BDD framework and tools, and what they have to offer for expressing better stories. It may eventually harm the implementation of methodology and may result, for example, in improper definition of requirements. This is why I think it's important to put extra effort into this process and produce better stories.
 
 Below are some general tips and personal insights which I would like to share. It may come to help in your next iteration or in refactoring of existing stories.
 
-Note: Since most BDD frameworks today support Gherkin syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
+Note: Since most BDD frameworks today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we will also be using it in this article. Though, many sections are also applicable for other story syntax.
 
 ## Don't tie stories to technical details
 User stories should not get into technical details such as technologies, algorithms, programming languages and architectures used in software.
@@ -25,13 +25,13 @@ You can test your stories' dependency by changing the order of scenarios and ver
 ## Use tabular representation for multiple parameters
 Scenarios may include multiple parameters or complex data which may not fit into a single step properly. Expressing such parameters in a tabular format makes your scenarios much readable and isolates the scenario's steps from their actual input.
 
-	Before:
+Before:
 	Given the user is in products section
 	When he selects the products: 1GB RAM (quantity=1), HDMI Cable (quantity=3), Rechargeable Batteries (quantity=2)
 	And he adds them to shopping cart
 	Then shopping cart should be updated
 
-	After:
+After:
 	Given the user is in products section
 	When he selects the following products:
 	|Product|Quantity| 
@@ -44,7 +44,7 @@ Scenarios may include multiple parameters or complex data which may not fit into
 ## Use meta parameters/tags
 When the number of stories increases over time, there is a need to manage all this amount of information and textual content. Using meta parameters (or tags), you can organize stories based on different criteria and label them under categories, both at story and scenario level.
 
-	Scenario: Logging in to system with administrator permissions for users management
+	Scenario: Login to system with permissions for users management
 	@category permission 
 	@scope sanity  
 	Given I am on login page
@@ -53,7 +53,7 @@ When the number of stories increases over time, there is a need to manage all th
 
 Most BDD frameworks can filter stories or scenarios based on meta parameters, allowing you to skip irrelevant scenarios in current context.
 
-## Don't overuse or misuse GivenStories or GivenScenarios
+## Don't overuse or misuse GivenStories
 GivenStories are reusable stories (more like a set of steps) used as prerequisites for more specific user stories. Steps defined in GivenStories are called before their associated story or scenario is.
 GivenStories can be useful when you have complex scenarios which include a set of precondition steps. Such steps can be isolated into a new story, and then can be invoked from other stories or scenarios using the GivenStories keyword. It greatly improves the maintainability of user stories and empowers the reuse of common precondition steps (DRY).
 
@@ -66,9 +66,11 @@ However, many story writers tend to overuse this feature. Ending up with numerou
 	
 	!-- A precondition to entire story --!
 	GivenStories: precondition1
+	
 	Scenario: Example of scenario with precondition as GivenStories    
 	GivenStories: precondition2,setupEnvironment
 	Given .. 
+	
 	Scenario: Another Example of scenario with precondition as GivenStories    
 	GivenStories: precondition2,setupEnvironment
 	Given .. 
@@ -81,12 +83,12 @@ Note: Many BDD frameworks don't support GivenStories in story syntax (Cucumber h
 Avoid declaring multiple "And"s which belong to the same step. Instead, split them into several steps and use them to compose the requested scenario.
 For example, let's break down this scenario:
 
-	Before:
+Before:
 	Scenario: Remove a product from cart
 	Given the user is on main page and he is logged in and shopping cart is not empty
 	......
 	
-	After:
+After:
 	Scenario: Remove a product from cart
 	Given the user is on main page
 	And he is logged in
@@ -99,7 +101,7 @@ For example, let's break down this scenario:
 ## Less "How", more "What" (Imperative vs Declarative)
 A user story should not emphasis on "How" events occur or outcomes are produced. Instead, it should describe "What" does this event do or this outcome produces. Let's take a look at following scenario in two different representations:
 
-	Before:
+Before:
 	Scenario: Successful user login
 	Given the user is in the login page
 	When he fills username text field with "sammy"
@@ -109,14 +111,14 @@ A user story should not emphasis on "How" events occur or outcomes are produced.
 	Then a new message should appear with text "Login was successful"
 	And a new link should appear with text "Welcome Sammy!"
 
-	After:
+After:
 	Scenario: Successful user login
 	Given the user is in the login page
 	And he has valid login information
 	When he logs in
 	Then he should be successfully authorized in system
 
-The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps which describes how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be.
+The new scenario describes what event is being performed (login), while the original scenario is composed of UI steps describing how login is performed. In the modified scenario, we clearly described what is the desired outcome, while in original story we described how this outcome is verified in details. Remember! clients and stake holders think and talk in higher abstractions, so does your scenarios should be.
 In other terminology, the original and new scenarios are imperative and declarative scenarios, accordingly. The imperative scenario is long, very detailed and closely tied to UI (which may require modification of scenario if the UI changes). The declarative scenario is robust to changes, less "noisy", more collaborative and achieves same goal in fewer lines.
 
 ## Combine steps
@@ -137,5 +139,5 @@ Notice how by combining small steps into one composite step, we insure that user
 
 ## Settle on the language
 Prior to writing stories, you should define various consistencies, standards and ground rules related to the business language you are going to "speak". Defining language's terms, context, users' roles and stake holders beforehand will insure an ubiquitous language and collaborative user stories which can be well-understood among both technical and non-technical members in your domain.
-Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on by the majority.
+Such process should be conducted with other team members (from different roles), and may require few iterations until the language is well-defined and agreed-on.
 
