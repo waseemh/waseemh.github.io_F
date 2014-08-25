@@ -11,7 +11,7 @@ Story in BDD can describe such aspects in a semi-formal language which is well-u
 
 Many BDD practitioners tend to underestimate the importance of writing high-quality stories. Others are not even familiar with the abilities of BDD framework and tools, and what they have to offer for expressing better stories. It may eventually harm the implementation of methodology and may result, for example, in improper definition of requirements. This is why I think it's important to put extra effort into this process and produce better stories.
 
-Below are some general tips, concepts and personal insights which I would like to share. They may be helpful in your next iteration of story writing or refactoring of existing stories.
+Below are some general tips, concepts and personal insights which I would like to share. They may be helpful in your next iteration of story writing or refactoring.
 
 __Note:__ Since most [BDD frameworks](http://java.dzone.com/articles/brief-comparison-bdd) today support [Gherkin](http://docs.behat.org/en/latest/guides/1.gherkin.html) syntax (Given, When, Then) to express stories, we'll be adapting it too in this article. Though, many sections are also applicable for other story syntax.
 
