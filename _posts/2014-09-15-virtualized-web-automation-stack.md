@@ -8,7 +8,7 @@ permalink: virtualized-web-automation-stack
 Creating a robust and scalable test automation process is a very essential phase. After automated tests were developed, they need to be executed frequently and rapidly. In automated tests for web, there is an additional need to cover different browsers and platforms. 
 In this tutorial we are going to show, step by step, how to setup a fully functional web automation execution process in a virtualized environment.
 
-LXC will be used to bring up multiple light-weight virtualizated machines for executing tests over different headless browsers. Selenium Grid will manage the execution of these tests. Vagrant will help us create a portable and self-contained execution environment, all stacked up in a single VM.
+__LXC__ will be used to bring up multiple light-weight virtualizated machines for executing tests over different headless browsers. __Selenium Grid__ will manage the execution of these tests. __Vagrant__ will help us create a portable and self-contained execution environment, all stacked up in a single VM.
 
 ![Vagrant and LXC](/assets/vagrant_lxc.png)
 
@@ -19,6 +19,7 @@ It basically adds an additional layer to VM creation and management, making the 
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
 [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
 [Install Vagrant](http://www.vagrantup.com/downloads.html)
 
 Once above are installed, we should initialize a new vagrant VM using following command:
@@ -161,8 +162,9 @@ Now that all nodes are ready, we can start running the tests on hub.
 
 A minor modification of WebDriver initialization is required to run the tests over grid. Instead of creating a specific WebDriver browser instance such as FirefoxWebDriver or ChromeWebDriver, we should use RemoteWebDriver and DesiredCapabilites instead.
 
-RemoteWebDriver -  used to execute the tests remotely on nodes.
-DesiredCapabilities - used to define the browser, version and platform that node should match.
+__RemoteWebDriver__ -  used to execute the tests remotely on nodes.
+
+__DesiredCapabilities__ - used to define the browser, version and platform that node should match.
 
 RemoteWebDriver instance is initialized with URL of hub and the DesiredCapability object. For example:
 
@@ -178,7 +180,9 @@ EXAMPLE
 More to the stack
 
 Tests can be built and run using different test methods. For example: combination of Maven as a build tool and JUnit/TestNG as a testing framework. Maven is a powerful tool for building Java projects and dependency management.
+
 A configuration management tool such as Puppet or Chef can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
+
 Additionally, you may setup a Jenkins build server on LXC host (hub) to run tests in an orderly manner using scheduled jobs for Continuous Integration.
 
 Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
