@@ -46,23 +46,28 @@ Let's start by installing LXC package in our Ubuntu VM. This package will instal
 
 After all required packages for LXC support are installed, we can start creating containers. Containers are created using "lxc-create" command.
 Following call will install a basic Ubuntu container named "c1" inside VM.
-#lxc-create -n c1 -t ubuntu
 
-You can see the current status of installed containers using "lxc-ls --fancy"  command.
+	lxc-create -n c1 -t ubuntu
+
+You can see the current status of installed containers using "lxc-ls"  command.
+
+	lxc-ls --fancy
  
-NAME  STATE    IPV4  IPV6  AUTOSTART
-------------------------------------
-c1    STOPPED  -     -     NO
+	NAME  STATE    IPV4  IPV6  AUTOSTART
+	------------------------------------
+	c1    STOPPED  -     -     NO
 
 Notice that initial status of container is to be stopped. We can use "lxc-start" command to start container:
+	
 	lxc-start -n c1 -d
 
 This command will bring up our "c1" container in the background. Let's take a look again at status of containers:
+	
 	lxc-ls --fancy
 	
-NAME  STATE    IPV4       IPV6  AUTOSTART
------------------------------------------
-c1    RUNNING  10.0.3.31  -     NO
+	NAME  STATE    IPV4       IPV6  AUTOSTART
+	-----------------------------------------
+	c1    RUNNING  10.0.3.31  -     NO
 
 Notice how container has been started and assigned a new IP address.
 
@@ -76,26 +81,32 @@ Since containers don't have a display (SSH access only), we will launch browsers
  
 Below installations should be done on all containers, since they will launch the browsers. 
 
-Install xfvb server:
+Install xfvb server
+
 	sudo apt-get install xvfb
  
-Install Firefox:
+Install Firefox
+
 	sudo apt-get update 
 	sudo apt-get install firefox
  
-Install Chrome: 
+Install Chrome
+
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 	sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' 
 	sudo apt-get update
 	sudo apt-get install google-chrome-stable
  
 Start xfvb server with aribtary display number (here used 8)
+
 	Xvfb :8 -ac 
 
-Set the DISPLAY environment variable with the display number we used to start xfvb server:
+Set the DISPLAY environment variable with the display number we used to start xfvb server
+
 	export DISPLAY=:8
 
-Launch Firefox browser headlessly:
+Launch Firefox browser headlessly
+
 	firefox
 
 If you didn't get any error during launch, then Firefox will be running in a headless mode.
@@ -111,18 +122,21 @@ IMAGE
 
 First, we need to download Selenium Server and install it on both hub and nodes. Since Selenium Server is a Java application, we also need to install JDK in all machines (you will also need it to build your Java tests and run them from hub).
 
-Install latest JDK version:
+Install latest JDK version
+
 	sudo apt-get install default-jdk
 
 Selenium Server can be downloaded from this link to any preferred location in LXC host and containers.
+
 	wget http://selenium-release.storage.googleapis.com/2.43/selenium-server-standalone-2.43.0.jar
  
 After we are done installing JDK and Selenium Grid, we can start bringing up the hubs and nodes.
 
-Inside the LXC host we launch a hub:
+Inside the LXC host we launch a hub
+
 	java -jar selenium-server-standalone-2.43.0.jar -role hub
-root@vagrant-ubuntu-trusty-32:/home/vagrant# java -jar selenium-server-standalone-2.43.0.jar -role hub
-20:54:05.800 INFO - Launching a selenium grid server
+	root@vagrant-ubuntu-trusty-32:/home/vagrant# java -jar selenium-server-standalone-2.43.0.jar -role hub
+	20:54:05.800 INFO - Launching a selenium grid server
  
 
 If everything went fine, you should be able to access following URL (port 4444 is the default port bind for Selenium Grid server) 
@@ -130,10 +144,11 @@ http://LXC-HOST-IP:4444/grid/console
 
 IMAGE
 
-After our hub is ready, we should go over containers and launch the nodes:
-#java -jar selenium-server-standalone-2.30.0.jar -role node -hub http://LXC-HOST-IP:4444/grid/register 
-ubuntu@c1:~$ java -jar selenium-server-standalone-2.43.0.jar -role node -hub http://10.0.2.15:4444/grid/register
-21:02:35.042 INFO - Launching a selenium grid node
+After our hub is ready, we should go over containers and launch the nodes
+
+	java -jar selenium-server-standalone-2.30.0.jar -role node -hub http://LXC-HOST-IP:4444/grid/register 
+	ubuntu@c1:~$ java -jar selenium-server-standalone-2.43.0.jar -role node -hub http://10.0.2.15:4444/grid/register
+	21:02:35.042 INFO - Launching a selenium grid node
  
 
 When we launch the nodes on all containers, we should see them in Grid's web interface
@@ -150,6 +165,7 @@ RemoteWebDriver -  used to execute the tests remotely on nodes.
 DesiredCapabilities - used to define the browser, version and platform that node should match.
 
 RemoteWebDriver instance is initialized with URL of hub and the DesiredCapability object. For example:
+
 	DesiredCapabilities capability = DesiredCapabilities.firefox();
 	WebDriver driver = new RemoteWebDriver(new URL("http://LXC-HOST-IP:4444/wd/hub"), capability);
 
