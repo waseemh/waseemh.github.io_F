@@ -10,7 +10,7 @@ In this tutorial we are going to show, step by step, how to setup a fully functi
 
 LXC will be used to bring up multiple light-weight virtualizated machines for executing tests over different headless browsers. Selenium Grid will manage the execution of these tests. Vagrant will help us create a portable and self-contained execution environment, all stacked up in a single VM.
 
-![Vagrant and LXC](/assets/vagrant_lxc.jpeg)
+![Vagrant and LXC](/assets/vagrant_lxc.png)
 
 ## Setting up main station (Virtual Box + Vagrant with Ubuntu)
 
@@ -18,14 +18,16 @@ Vagrant is an open source tool for managing virtual machines. It supports differ
 It basically adds an additional layer to VM creation and management, making the whole process much easier and flexible.
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
-Install VirtualBox
-Install Vagrant
+[Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+[Install Vagrant](http://www.vagrantup.com/downloads.html)
 
 Once above are installed, we should initialize a new vagrant VM using following command:
+	
 	vagrant init
 	vagrant up
 
 Now you should have a new Ubuntu VM up and running. You can SSH to new VM using command:
+	
 	vagrant ssh 
 
 Note: This step is optional. If you already have an Ubuntu machine, you can use it to bring up all necessary environment in next steps.However, using Vagrant has many benefits such as providing portable environments, source control of configurations and easy customizations of VMs.
@@ -37,6 +39,7 @@ LXC (Linux Containers) is a virtualization method at OS-level. It allows to run 
 We can setup multiple isolated Linux instances inside a single LXC host. Each instance (container) will have its own IP address, local file system, services, and memory/CPU allocation.
 
 Let's start by installing LXC package in our Ubuntu VM. This package will install all LXC related files and configurations. 
+	
 	sudo apt-get install lxc
 
 ## Creating containers
