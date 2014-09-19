@@ -22,24 +22,39 @@ Vagrant uses "boxes" to package a virtual machine along with its configuration. 
 
 [Install Vagrant](http://www.vagrantup.com/downloads.html)
 
-Once above are installed, we should initialize a new vagrant VM using following command:
+Once above are installed, we should install a new Vagrant box using a template (base box). This box can be used later to bring up multiple environments.
+
+You can find here a list of various Vagrant base boxes to download.
+
+For demonstration, we will download an Ubuntu14.04-32bit cloud base box with VirtualBox provider.
+
+	vagrant box add ubuntu-selenium https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box
 	
-	vagrant init
+After process is completed, you should see following command line output:
+
+	==> box: Successfully added box 'ubuntu-selenium' for 'virtualbox'!
+	
+Now we should create a new Vagrant environment using our "ubuntu-selenium".
+
+	vagrant init ubuntu-selenium
+	
+Finally, deploy the created environment
+
 	vagrant up
 
 Now you should have a new Ubuntu VM up and running. You can SSH to new VM using command:
 	
-	vagrant ssh 
+	vagrant ssh
 
-Note: This step is optional. If you already have an Ubuntu machine, you can use it to bring up all necessary environment in next steps.However, using Vagrant has many benefits such as providing portable environments, source control of configurations and easy customizations of VMs.
+Note: This section is optional. If you already have an Ubuntu machine, you can use it to bring up all necessary environment in upcoming steps. However, using Vagrant has many benefits such as providing portable environments, source control of configurations and easy customizations of VMs.
 
 ## Installing LXC
 
 LXC (Linux Containers) is a virtualization method at OS-level. It allows to run multiple Linux virtualized systems (containers) on a single parent machine (host). LXC is a light-weight alternative to hypervisors virtualization such as VMWare ESXi or KVM.
 
-We can setup multiple isolated Linux instances inside a single LXC host. Each instance (container) will have its own IP address, local file system, services, and memory/CPU allocation.
+We can setup multiple isolated Linux instances inside a single LXC host (which is the VM in our case) . Each instance (container) will have its own IP address, local file system, services, and memory/CPU allocation.
 
-Let's start by installing LXC package in our Ubuntu VM. This package will install all LXC related files and configurations. 
+Let's start by SSHing to our Ubuntu VM and install LXC package. This package will install all LXC related files and configurations. 
 	
 	sudo apt-get install lxc
 
@@ -177,7 +192,7 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid.
 
 EXAMPLE
  
-More to the stack
+## More to Stack up
 
 Tests can be built and run using different test methods. For example: combination of Maven as a build tool and JUnit/TestNG as a testing framework. Maven is a powerful tool for building Java projects and dependency management.
 
