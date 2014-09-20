@@ -18,7 +18,7 @@ Vagrant is an open source tool for managing virtual machines. It supports differ
 It basically adds an additional layer to VM creation and management, making the whole process much easier and flexible.
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
-In this article, Virtual Box is used as a provider. Thus we need to download and install Vagrant and Virtual Box. 
+In this article, Virtual Box is used as a provider.
 
 [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
@@ -158,7 +158,7 @@ You should see following command line output:
 
 	INFO - Launching a selenium grid server
 
-Now you should be able to access following URL for monitoring Grid's nodes (4444 is the default port bind for Selenium Grid's HTTP service.).
+Now you should be able to access following URL for monitoring Grid's nodes (4444 is the default port bind for Selenium Grid's HTTP service):
 	
 	http://localhost:4444/grid/console
 
@@ -201,7 +201,7 @@ A node that matches the criteria in DesiredCapabilities will be chosen by Remote
 
 Below is a complete example of a simple WebDriver test that uses Selenium Grid. This simple test verifies Google's main page title and takes a screenshot.
 
-EXAMPLE
+{% gist cfc60640702a07639f64 %}
 
 Tests are built and run according to build tool (Ant, Maven, ...) and testing framework (JUnit, TestNG, ...) being used. These software should also be installed on LXC host prior to running tests.
  
