@@ -85,9 +85,10 @@ This command will bring up our "c1" container in the background. Let's take a lo
 	-----------------------------------------
 	c1    RUNNING  10.0.3.31  -     NO
 
-Notice how container has been started and assigned a new IP address.
+Notice how container has been started and assigned a new private IP address (LXC host has a built in DHCP server using dnsmasq).
 
 We can repeat above procedure to install more containers. 
+In order to avoid repeating installation procedure on all containers, we can use lxc-clone command to create multiple containers from a pre-configured container. 
  
 Each container comes with SSH access. You can SSH from LXC host to any container using lxc-console command or using an SSH client inside VM.
 
@@ -125,8 +126,6 @@ Launch Firefox browser headlessly
 
 	firefox
 
-If you didn't get any error during launch, then Firefox will be running in a headless mode.
-
 ## Installing Selenium Grid
 
 Selenium Grid is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more robust and scalable.
@@ -153,25 +152,29 @@ Inside the LXC host we launch a hub
 
 	java -jar selenium-server-standalone-2.43.0.jar -role hub
 	
-You should see following output:
+You should see following command line output:
 
-	root@vagrant-ubuntu-trusty-32:/home/vagrant# java -jar selenium-server-standalone-2.43.0.jar -role hub
-	20:54:05.800 INFO - Launching a selenium grid server
- 
+	INFO - Launching a selenium grid server
 
-If everything went fine, you should be able to access following URL (port 4444 is the default port bind for Selenium Grid server) 
-http://LXC-HOST-IP:4444/grid/console
+Now you should be able to access following URL for monitoring Grid's nodes (4444 is the default port bind for Selenium Grid's HTTP service.).
+	
+	http://localhost:4444/grid/console
 
 ![Selenium  Grid initial state](/assets/grid_init.png)
 
-After our hub is ready, we should go over containers and launch the nodes
+Few notes regarding Vagrant and VirtualBox networking:
+	- In order to access URL from host machine (outside VM), you need to use [port forwarding](https://docs.vagrantup.com/v2/networking/forwarded_ports.html) for Grid's port.
+	- IP address of LXC host (hub) is the internal network address in the VM's private network. VirtualBox uses IP addresses in range 10.0.0.0 - 10.255.255.255 (according to [RFC1918](http://tools.ietf.org/html/rfc1918) Section 3: "Private Address Space")
+	
+After our hub is ready, we should go over containers and launch the nodes. Notice that Selenium Server host should be the private IP address of LXC host.
 
-	java -jar selenium-server-standalone-2.30.0.jar -role node -hub http://LXC-HOST-IP:4444/grid/register 
-	ubuntu@c1:~$ java -jar selenium-server-standalone-2.43.0.jar -role node -hub http://10.0.2.15:4444/grid/register
-	21:02:35.042 INFO - Launching a selenium grid node
+	java -jar selenium-server-standalone-2.43.0.jar -role node -hub http://LXC-HOST-IP:4444/grid/register
+	
+You should see following command line output:
+
+	INFO - Launching a selenium grid node
  
-
-When we launch the nodes on all containers, we should see them in Grid's web interface
+After we launch the nodes on all containers, we should see them in Grid's web interface
 
 ![Selenium  Grid with node](/assets/grid_with_node.png)
 
@@ -192,7 +195,7 @@ RemoteWebDriver instance is initialized with URL of hub and the DesiredCapabilit
 
 A node that matches the criteria in DesiredCapabilities will be chosen by RemoteWebDriver to run the tests.
 
-Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
+Below is a complete example of a simple WebDriver test that uses Selenium Grid. This simple test verifies Google's main page title and takes a screenshot.
 
 EXAMPLE
  
