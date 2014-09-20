@@ -34,7 +34,7 @@ After process is completed, you should see following command line output:
 
 	==> box: Successfully added box 'ubuntu-selenium' for 'virtualbox'!
 	
-Now we should create a new Vagrant environment using our "ubuntu-selenium".
+Now we should create a new Vagrant environment using our "ubuntu-selenium" base box.
 
 	vagrant init ubuntu-selenium
 	
@@ -63,11 +63,11 @@ Let's start by SSHing to our Ubuntu VM and install LXC package. This package wil
 After all required packages for LXC support are installed, we can start creating containers. Containers are created using "lxc-create" command.
 Following call will install a basic Ubuntu container named "c1" inside VM.
 
-	lxc-create -n c1 -t ubuntu
+	sudo lxc-create -n c1 -t ubuntu
 
 You can see the current status of installed containers using "lxc-ls"  command.
 
-	lxc-ls --fancy
+	sudo lxc-ls --fancy
  
 	NAME  STATE    IPV4  IPV6  AUTOSTART
 	------------------------------------
@@ -75,11 +75,11 @@ You can see the current status of installed containers using "lxc-ls"  command.
 
 Notice that initial status of container is to be stopped. We can use "lxc-start" command to start container:
 	
-	lxc-start -n c1 -d
+	sudo lxc-start -n c1 -d
 
 This command will bring up our "c1" container in the background. Let's take a look again at status of containers:
 	
-	lxc-ls --fancy
+	sudo lxc-ls --fancy
 	
 	NAME  STATE    IPV4       IPV6  AUTOSTART
 	-----------------------------------------
@@ -93,7 +93,7 @@ Each container comes with SSH access. You can SSH from LXC host to any container
 
 ## Installing headless browser (Firefox or Chrome)
 
-Since containers don't have a display (SSH access only), we will launch browsers in headless mode during automated tests. It means that browsers will run on a fake display, using xfvb as a display server. No worries, we are not testing any fake browsers. We are only using an X-Server which doesn't produce any output.
+Since containers don't have a display (SSH access only), we will launch browsers in headless mode during automated tests. It means that browsers will run on a fake display, using xfvb as a display server. No worries, we are not running tests on fake browsers. We are only using an X-Server which doesn't produce any output.
  
 Below installations should be done on all containers, since they will launch the browsers. 
 
@@ -113,7 +113,7 @@ Install Chrome
 	sudo apt-get update
 	sudo apt-get install google-chrome-stable
  
-Start xfvb server with aribtary display number (here used 8)
+Start xfvb server with aribtary display number (here I used 8)
 
 	Xvfb :8 -ac 
 
@@ -130,19 +130,20 @@ If you didn't get any error during launch, then Firefox will be running in a hea
 ## Installing Selenium Grid
 
 Selenium Grid is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more robust and scalable.
-Selenium Grid operates in a hub-node mode. A hub is the main station which runs the tests and distribute their execution over the nodes. Each node may have different browsers and run on different platforms.
+Selenium Grid operates in a hub-node mode. A hub is the main station which runs the tests and distribute their execution over the nodes. Each node may have different browsers and may run on different platforms.
 
 In our environment, the LXC host will act as a hub and the containers will act as nodes. Each container node will use a different browser when executing tests from hub.
 
 IMAGE
 
-First, we need to download Selenium Server and install it on both hub and nodes. Since Selenium Server is a Java application, we also need to install JDK in all machines (you will also need it to build your Java tests and run them from hub).
+First, we need to download Selenium Server and install it on both hub and nodes. 
+Since Selenium Server is a Java application, we also need to install JDK in all machines (you will also need it to build your Java tests and run them from hub).
 
 Install latest JDK version
 
 	sudo apt-get install default-jdk
 
-Selenium Server can be downloaded from this link to any preferred location in LXC host and containers.
+Selenium Server can be downloaded using wget from Selenium website to any preferred location in LXC host and containers.
 
 	wget http://selenium-release.storage.googleapis.com/2.43/selenium-server-standalone-2.43.0.jar
  
@@ -151,6 +152,9 @@ After we are done installing JDK and Selenium Grid, we can start bringing up the
 Inside the LXC host we launch a hub
 
 	java -jar selenium-server-standalone-2.43.0.jar -role hub
+	
+You should see following output:
+
 	root@vagrant-ubuntu-trusty-32:/home/vagrant# java -jar selenium-server-standalone-2.43.0.jar -role hub
 	20:54:05.800 INFO - Launching a selenium grid server
  
@@ -158,7 +162,7 @@ Inside the LXC host we launch a hub
 If everything went fine, you should be able to access following URL (port 4444 is the default port bind for Selenium Grid server) 
 http://LXC-HOST-IP:4444/grid/console
 
-IMAGE
+[Selenium  Grid initial state](/assets/grid_init.png)
 
 After our hub is ready, we should go over containers and launch the nodes
 
