@@ -203,7 +203,7 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
 
 {% gist cfc60640702a07639f64 %}
 
-Tests are built and run according to build tool (Ant, Maven, ...) and testing framework (JUnit, TestNG, ...) being used. These software should also be installed on LXC host prior to running tests.
+Tests are built and run according to build tool ([Apache Ant](http://ant.apache.org/), [Maven](http://maven.apache.org/), ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...) being used. These software should also be installed on LXC host prior to running tests.
  
 ## Agile Environment
 
