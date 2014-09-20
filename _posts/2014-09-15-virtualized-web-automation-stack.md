@@ -8,7 +8,7 @@ permalink: virtualized-web-automation-stack
 Creating a robust and scalable test automation process is a very essential phase. After automated tests were developed, they need to be executed frequently and rapidly. In automated tests for web, there is an additional need to cover different browsers and platforms. 
 In this tutorial we are going to show, step by step, how to setup a fully functional web automation execution process in a virtualized environment.
 
-__LXC__ will be used to bring up multiple light-weight virtualizated machines for executing tests over different headless browsers. __Selenium Grid__ will manage the execution of these tests. __Vagrant__ will help us create a portable and self-contained execution environment, all stacked up in a single VM.
+__LXC__ will be used to bring up multiple light-weight virtualizated machines for executing Selenium WebDriver tests over different headless browsers. __Selenium Grid__ will manage the execution of these tests. __Vagrant__ will help us create a portable and self-contained execution environment, all stacked up in a single VM.
 
 ![Vagrant and LXC](/assets/vagrant_lxc.png)
 
@@ -18,15 +18,17 @@ Vagrant is an open source tool for managing virtual machines. It supports differ
 It basically adds an additional layer to VM creation and management, making the whole process much easier and flexible.
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
+In this article, Virtual Box is used as a provider. Thus we need to download and install Vagrant and Virtual Box. 
+
 [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 [Install Vagrant](http://www.vagrantup.com/downloads.html)
 
-Once above are installed, we should install a new Vagrant box using a template (base box). This box can be used later to bring up multiple environments.
+Once above are installed, we should install a new Vagrant box using a template (base box). This box can be used later saved to bring up multiple environments.
 
-You can find here a list of various Vagrant base boxes to download.
+You can find [here](http://www.vagrantbox.es/) a list of various Vagrant base boxes to download.
 
-For demonstration, we will download an Ubuntu14.04-32bit cloud base box with VirtualBox provider and name it "ubuntu-selenium".
+We will download an Ubuntu14.04-32bit cloud base box with VirtualBox provider and name it "ubuntu-selenium".
 
 	vagrant box add ubuntu-selenium https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box
 	
@@ -133,7 +135,7 @@ Selenium Grid operates in a hub-node mode. A hub is the main station which runs 
 
 In our environment, the LXC host will act as a hub and the containers will act as nodes. Each container node will use a different browser when executing tests from hub.
 
-IMAGE
+![Selenium  Grid](/assets/grid.png)
 
 First, we need to download Selenium Server and install it on both hub and nodes. 
 Since Selenium Server is a Java application, we also need to install JDK in all machines (you will also need it to build your Java tests and run them from hub).
@@ -168,7 +170,7 @@ Few notes regarding Vagrant and VirtualBox networking:
 
 - IP address of LXC host (hub) is the internal network address in the VM's private network. VirtualBox uses IP addresses in range 10.0.0.0 - 10.255.255.255 (according to [RFC1918](http://tools.ietf.org/html/rfc1918) Section 3: "Private Address Space")
 	
-After our hub is ready, we should go over containers and launch the nodes. Notice that Selenium Server host should be the private IP address of LXC host.
+After our hub is ready, we should go over containers (using SSH) and launch the nodes. Notice that Selenium Server host should be the private IP address of LXC host.
 
 	java -jar selenium-server-standalone-2.43.0.jar -role node -hub http://LXC-HOST-IP:4444/grid/register
 	
@@ -176,7 +178,7 @@ You should see following command line output:
 
 	INFO - Launching a selenium grid node
  
-After we launch the nodes on all containers, we should see them in Grid's web interface
+After we launch the nodes on all containers, we should see them in Grid's web interface. In this example, we only use one container (node).
 
 ![Selenium  Grid with node](/assets/grid_with_node.png)
 
@@ -184,7 +186,7 @@ After we launch the nodes on all containers, we should see them in Grid's web in
 
 Now that all nodes are ready, we can start running the tests on hub.
 
-A minor modification of WebDriver initialization is required to run the tests over grid. Instead of creating a specific WebDriver browser instance such as FirefoxWebDriver or ChromeWebDriver, we should use RemoteWebDriver and DesiredCapabilites instead.
+A minor modification of WebDriver initialization is required to run Selenium WebDriver tests over grid. Instead of creating a specific WebDriver browser instance such as FirefoxWebDriver or ChromeWebDriver, we should use RemoteWebDriver and DesiredCapabilites instead.
 
 __RemoteWebDriver__ -  used to execute the tests remotely on nodes.
 
@@ -200,14 +202,15 @@ A node that matches the criteria in DesiredCapabilities will be chosen by Remote
 Below is a complete example of a simple WebDriver test that uses Selenium Grid. This simple test verifies Google's main page title and takes a screenshot.
 
 EXAMPLE
+
+Tests are built and run according to build tool (Ant, Maven, ...) and testing framework (JUnit, TestNG, ...) being used. These software should also be installed on LXC host prior to running tests.
  
-## More to Stack up
+## Agile Environment
 
-Tests can be built and run using different test methods. For example: combination of Maven as a build tool and JUnit/TestNG as a testing framework. Maven is a powerful tool for building Java projects and dependency management.
+A configuration management tool such as [Puppet](http://puppetlabs.com/) or [Chef](https://www.getchef.com/chef/) can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
 
-A configuration management tool such as Puppet or Chef can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
+Additionally, you may setup a [Jenkins](http://jenkins-ci.org/) build server on LXC host (hub) to run tests in an orderly manner using scheduled jobs for Continuous Integration.
 
-Additionally, you may setup a Jenkins build server on LXC host (hub) to run tests in an orderly manner using scheduled jobs for Continuous Integration.
 
 Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
 
