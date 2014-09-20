@@ -205,7 +205,9 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
 
 {% gist cfc60640702a07639f64 %}
 
-Tests are built and run according to used build tool ([Apache Ant](http://ant.apache.org/), [Apache Maven](http://maven.apache.org/), [Gradle](http://www.gradle.org/), etc, ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...). These software should also be installed on LXC host prior to running tests.
+When running the test from hub, the container with matched browser type, version and platform will be chosen.
+
+Tests are built and run according to used build tool ([Apache Ant](http://ant.apache.org/), [Apache Maven](http://maven.apache.org/), [Gradle](http://www.gradle.org/), etc...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), etc...). These software should also be installed on LXC host prior to running tests.
  
 ##Exporting the environment
 
@@ -223,8 +225,5 @@ A configuration management tool such as [Puppet](http://puppetlabs.com/) or [Che
 Additionally, you may setup a [Jenkins](http://jenkins-ci.org/) build server on LXC host (hub) to run tests in an orderly manner using scheduled jobs for Continuous Integration.
 
 ![Jenkins, Puppet and Chef](/assets/jenkins_puppet_chef.png)
-
-
-
 
 Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
