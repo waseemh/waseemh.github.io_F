@@ -162,7 +162,7 @@ You should see following output:
 If everything went fine, you should be able to access following URL (port 4444 is the default port bind for Selenium Grid server) 
 http://LXC-HOST-IP:4444/grid/console
 
-[Selenium  Grid initial state](/assets/grid_init.png)
+![Selenium  Grid initial state](/assets/grid_init.png)
 
 After our hub is ready, we should go over containers and launch the nodes
 
