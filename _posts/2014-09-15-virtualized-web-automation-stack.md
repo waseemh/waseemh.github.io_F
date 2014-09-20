@@ -207,6 +207,15 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
 
 Tests are built and run according to used build tool ([Apache Ant](http://ant.apache.org/), [Apache Maven](http://maven.apache.org/), [Gradle](http://www.gradle.org/), etc, ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...). These software should also be installed on LXC host prior to running tests.
  
+##Exporting the environment
+
+Using Vagrant, you can create a new base box (template) with all the changes we applied during previous sections. That way, you can setup multiple environments using the same configurations in less than a minute.
+We can create a new base box of out of current Vagrant environment using vagrant package command:
+
+	vagrant package --output ubuntu-selenium-new.box
+	
+Note that above command supports VirtualBox provider only. Exporting to other providers should be done manually (there should be enough documentation on the internet on how to package base boxes with different providers).
+
 ## Additional tips
 
 A configuration management tool such as [Puppet](http://puppetlabs.com/) or [Chef](https://www.getchef.com/chef/) can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
