@@ -5,7 +5,7 @@ comments: true
 permalink: virtualized-web-automation-stack
 ---
 
-Creating a robust and scalable test automation process is a very essential phase. After automated tests were developed, they need to be executed frequently and rapidly. In automated tests for web, there is an additional need to cover different browsers and platforms. 
+Creating a robust and scalable execution environment for automation tests is a very essential phase. After tests are written, they need to be executed on frequent basis over multiple environments. In automated tests for web, there is an additional need to cover different browsers and platforms. 
 In this tutorial we are going to show, step by step, how to setup a fully functional web automation execution process in a virtualized environment.
 
 __LXC__ will be used to bring up multiple light-weight virtualizated machines for executing Selenium WebDriver tests over different headless browsers. __Selenium Grid__ will manage the execution of these tests. __Vagrant__ will help us create a portable and self-contained execution environment, all stacked up in a single VM.
@@ -96,7 +96,7 @@ In order to avoid repeating installation procedure on all containers, we can use
  
 Each container comes with SSH access. You can SSH from LXC host to any container using lxc-console command or using an SSH client inside VM.
 
-## Installing headless browser (Firefox or Chrome)
+## Installing headless browsers
 
 Since containers don't have a display (SSH access only), we will launch browsers in headless mode during automated tests. It means that browsers will run on a fake display, using xfvb as a display server. No worries, we are not running tests on fake browsers. We are only using an X-Server which doesn't produce any output.
  
