@@ -16,6 +16,7 @@ __LXC__ will be used to bring up multiple light-weight virtualizated machines fo
 
 Vagrant is an open source tool for managing virtual machines. It supports different [providers](https://docs.vagrantup.com/v2/providers/) such as VirtualBox, VMWare, AWS and OpenStack.
 It basically adds an additional layer to VM creation and management, making the whole process much easier and flexible.
+
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
 In this article, Virtual Box is used as a provider.
