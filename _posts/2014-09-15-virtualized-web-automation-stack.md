@@ -52,7 +52,7 @@ Note: This section is optional. If you already have an Ubuntu machine, you can u
 
 ## Installing LXC
 
-LXC (Linux Containers) is a virtualization method at OS-level. It allows to run multiple Linux virtualized systems (containers) on a single parent machine (host). LXC is a light-weight alternative to hypervisors virtualization such as VMWare ESXi or KVM.
+[LXC](https://linuxcontainers.org/) (Linux Containers) is a virtualization method at OS-level. It allows to run multiple Linux virtualized systems (containers) on a single parent machine (host). LXC is a light-weight alternative to hypervisors virtualization such as VMWare ESXi or KVM.
 
 We can setup multiple isolated Linux instances inside a single LXC host (which is the VM in our case) . Each instance (container) will have its own IP address, local file system, services, and memory/CPU allocation.
 
@@ -63,7 +63,7 @@ Let's start by SSHing to our Ubuntu VM and install LXC package. This package wil
 ## Creating containers
 
 After all required packages for LXC support are installed, we can start creating containers. Containers are created using "lxc-create" command.
-Following call will install a basic Ubuntu container named "c1" inside VM.
+Following call will install a basic Ubuntu container named "c1" inside VM (LXC host).
 
 	sudo lxc-create -n c1 -t ubuntu
 
@@ -91,6 +91,8 @@ Notice how container has been started and assigned a new private IP address (LXC
 
 We can repeat above procedure to install more containers. 
 In order to avoid repeating installation procedure on all containers, we can use lxc-clone command to create multiple containers from a pre-configured container. 
+
+	sudo lxc-clone -o c1 -n c2
  
 Each container comes with SSH access. You can SSH from LXC host to any container using lxc-console command or using an SSH client inside VM.
 
@@ -130,7 +132,7 @@ Launch Firefox browser headlessly
 
 ## Installing Selenium Grid
 
-Selenium Grid is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more robust and scalable.
+[Selenium Grid](https://code.google.com/p/selenium/wiki/Grid2) is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more robust and scalable.
 Selenium Grid operates in a hub-node mode. A hub is the main station which runs the tests and distribute their execution over the nodes. Each node may have different browsers and may run on different platforms.
 
 In our environment, the LXC host will act as a hub and the containers will act as nodes. Each container node will use a different browser when executing tests from hub.
@@ -203,14 +205,15 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
 
 {% gist cfc60640702a07639f64 %}
 
-Tests are built and run according to build tool ([Apache Ant](http://ant.apache.org/), [Maven](http://maven.apache.org/), ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...) being used. These software should also be installed on LXC host prior to running tests.
+Tests are built and run according to used build tool ([Apache Ant](http://ant.apache.org/), [Apache Maven](http://maven.apache.org/), [Gradle](http://www.gradle.org/), etc, ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...). These software should also be installed on LXC host prior to running tests.
  
-## Agile Environment
+## A more Agile stack
 
 A configuration management tool such as [Puppet](http://puppetlabs.com/) or [Chef](https://www.getchef.com/chef/) can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
 
 Additionally, you may setup a [Jenkins](http://jenkins-ci.org/) build server on LXC host (hub) to run tests in an orderly manner using scheduled jobs for Continuous Integration.
 
+![Jenkins, Puppet and Chef](/assets/jenkins_puppet_chef.png)
 
 Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
 
