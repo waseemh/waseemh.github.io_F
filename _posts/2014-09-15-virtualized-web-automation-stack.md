@@ -163,9 +163,9 @@ Now you should be able to access following URL for monitoring Grid's nodes (4444
 ![Selenium  Grid initial state](/assets/grid_init.png)
 
 Few notes regarding Vagrant and VirtualBox networking:
+- In order to access URL from host machine (outside VM), you need to use [port forwarding](https://docs.vagrantup.com/v2/networking/forwarded_ports.html) for Grid's port.
 
-	- In order to access URL from host machine (outside VM), you need to use [port forwarding](https://docs.vagrantup.com/v2/networking/forwarded_ports.html) for Grid's port.
-	- IP address of LXC host (hub) is the internal network address in the VM's private network. VirtualBox uses IP addresses in range 10.0.0.0 - 10.255.255.255 (according to [RFC1918](http://tools.ietf.org/html/rfc1918) Section 3: "Private Address Space")
+- IP address of LXC host (hub) is the internal network address in the VM's private network. VirtualBox uses IP addresses in range 10.0.0.0 - 10.255.255.255 (according to [RFC1918](http://tools.ietf.org/html/rfc1918) Section 3: "Private Address Space")
 	
 After our hub is ready, we should go over containers and launch the nodes. Notice that Selenium Server host should be the private IP address of LXC host.
 
