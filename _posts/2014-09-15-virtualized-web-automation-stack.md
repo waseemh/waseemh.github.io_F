@@ -14,7 +14,7 @@ __LXC__ will be used to bring up multiple light-weight virtualizated machines fo
 
 ## Setting up main station (Virtual Box + Vagrant with Ubuntu)
 
-Vagrant is an open source tool for managing virtual machines. It supports different providers such as VirtualBox, VMWare, AWS and OpenStack.
+Vagrant is an open source tool for managing virtual machines. It supports different [providers](https://docs.vagrantup.com/v2/providers/) such as VirtualBox, VMWare, AWS and OpenStack.
 It basically adds an additional layer to VM creation and management, making the whole process much easier and flexible.
 Vagrant uses "boxes" to package a virtual machine along with its configuration. You can provide anyone with a Vagrant "box" so they can bring up an identical working environment, across different providers.
 
@@ -207,7 +207,7 @@ Below is a complete example of a simple WebDriver test that uses Selenium Grid. 
 
 Tests are built and run according to used build tool ([Apache Ant](http://ant.apache.org/), [Apache Maven](http://maven.apache.org/), [Gradle](http://www.gradle.org/), etc, ...) and testing framework ([JUnit](http://junit.org/), [TestNG](http://testng.org/), ...). These software should also be installed on LXC host prior to running tests.
  
-## A more Agile stack
+## Additional tips
 
 A configuration management tool such as [Puppet](http://puppetlabs.com/) or [Chef](https://www.getchef.com/chef/) can be used to install and manage all needed packages for setting up the environment. Vagrant even has built-in provisioning support for such tools, which makes it easier to configure Vagrant boxes using Chef recipes or Puppet. 
 
@@ -215,5 +215,7 @@ Additionally, you may setup a [Jenkins](http://jenkins-ci.org/) build server on 
 
 ![Jenkins, Puppet and Chef](/assets/jenkins_puppet_chef.png)
 
-Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
 
+
+
+Now you should have a fully functional environment for running automated web tests over different machines and browsers in parallel. All these features are stacked inside a single portable VM which can be scaled up according to execution needs.
