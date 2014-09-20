@@ -132,8 +132,8 @@ Launch Firefox browser headlessly
 
 ## Installing Selenium Grid
 
-[Selenium Grid](https://code.google.com/p/selenium/wiki/Grid2) is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more robust and scalable.
-Selenium Grid operates in a hub-node mode. A hub is the main station which runs the tests and distribute their execution over the nodes. Each node may have different browsers and may run on different platforms.
+[Selenium Grid](https://code.google.com/p/selenium/wiki/Grid2) is used to run Selenium/WebDriver based tests on different machines, browsers and operating systems in parallel. It makes the whole process of automation tests execution more scalable and available.
+Selenium Grid operates in a hub-node mode. A hub is the main station which stores the automated tests and distribute their execution over the nodes. Each node may have different browsers and may run on different platforms.
 
 In our environment, the LXC host will act as a hub and the containers will act as nodes. Each container node will use a different browser when executing tests from hub.
 
