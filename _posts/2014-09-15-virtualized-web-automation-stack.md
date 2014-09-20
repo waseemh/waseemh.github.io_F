@@ -173,7 +173,7 @@ After our hub is ready, we should go over containers and launch the nodes
 
 When we launch the nodes on all containers, we should see them in Grid's web interface
 
-IMAGE
+![Selenium  Grid with node](/assets/grid_with_node.png)
 
 ## Running tests with Grid
 
