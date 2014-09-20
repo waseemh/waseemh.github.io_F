@@ -26,7 +26,7 @@ Once above are installed, we should install a new Vagrant box using a template (
 
 You can find here a list of various Vagrant base boxes to download.
 
-For demonstration, we will download an Ubuntu14.04-32bit cloud base box with VirtualBox provider.
+For demonstration, we will download an Ubuntu14.04-32bit cloud base box with VirtualBox provider and name it "ubuntu-selenium".
 
 	vagrant box add ubuntu-selenium https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-i386-vagrant-disk1.box
 	
@@ -163,6 +163,7 @@ Now you should be able to access following URL for monitoring Grid's nodes (4444
 ![Selenium  Grid initial state](/assets/grid_init.png)
 
 Few notes regarding Vagrant and VirtualBox networking:
+
 	- In order to access URL from host machine (outside VM), you need to use [port forwarding](https://docs.vagrantup.com/v2/networking/forwarded_ports.html) for Grid's port.
 	- IP address of LXC host (hub) is the internal network address in the VM's private network. VirtualBox uses IP addresses in range 10.0.0.0 - 10.255.255.255 (according to [RFC1918](http://tools.ietf.org/html/rfc1918) Section 3: "Private Address Space")
 	
