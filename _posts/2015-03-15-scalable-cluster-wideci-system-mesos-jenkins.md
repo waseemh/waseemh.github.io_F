@@ -14,4 +14,4 @@ For more specific details on how Mesos implements high-availability, you may ref
 An in-depth technical specifications about Mesos in general, can be found in its research paper.
 
 In our specific scenario, there are two relevant frameworks to run on top of Mesos: Marathon and Jenkins-Mesos plugin.
-
+Marathon is "A cluster-wide init and control system for services". Mesos-wise, Marathon is a Mesos framework for long-running services. Unlike other application-specific frameworks, Marathon can schedule and launch tasks for any application service. Marathon provides high-available services by automatically responding to service failures and ensuring that services are always running (You can think of it as an "init.d" across the entire cluster). Moreover, multiple Marathon instances can be used to provide framework high-availability.
