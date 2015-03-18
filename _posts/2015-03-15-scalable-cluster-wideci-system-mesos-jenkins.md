@@ -20,6 +20,6 @@ An in-depth technical specifications about Mesos in general, can be found in its
 
 In our specific scenario, there are two relevant frameworks to run on top of Mesos: Marathon and Jenkins-Mesos plugin.
 
-Marathon is "A cluster-wide init and control system for services". Mesos-wise, Marathon is a Mesos framework for long-running services. Unlike other application-specific frameworks, Marathon can schedule and launch tasks for any application service. Marathon ensures high-available services by automatically responding to service failures and ensuring that services are always running (You can think of it as an "init.d" across the entire cluster). Moreover, multiple Marathon instances can be used to provide framework high-availability.
+Marathon is "A cluster-wide init and control system for services". Mesos-wise, Marathon is a Mesos framework for long-running services. Unlike other application-specific frameworks (such as Hadoop or Spark frameworks), Marathon can schedule and launch tasks for any application service. Marathon ensures high-available services by automatically responding to service failures and keeping services always running (You can think of it as an "init.d" across the entire cluster). Moreover, multiple Marathon instances can be used to provide framework high-availability.
 
-Jenkins-Mesos plugin is a Mesos framework for launching on-demand Jenkins slaves 
+Jenkins-Mesos plugin is a Mesos framework for launching on-demand Jenkins slaves, based on current builds' queue. Whenever a new build for a specific job is started, Mesos-Jenkins plugin will dynamically launch a slave on a cluster node and execute the required Jenkins job. 
