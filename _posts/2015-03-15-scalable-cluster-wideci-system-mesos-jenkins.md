@@ -29,4 +29,5 @@ Mesos Jenkins plugin is a Mesos framework for launching on-demand Jenkins slaves
 2- Install Mesos plugin on Jenkins master and register it as Mesos framework in Mesos master. Jenkins framework scheduler will receive resource offers from Mesos master.
 
 3- Configure Jenkins jobs to schedule build slaves from Mesos cluster.
+
 4- 
