@@ -26,7 +26,7 @@ Mesos Jenkins plugin is a Mesos framework for launching on-demand Jenkins slaves
 
 ## Implementation
 
-Entire flow can be described according to below:
+Entire flow can be described according to below phases:
 
 1- Launch a Jenkins master instance as a service on a Mesos slave using Marathon framework.
 
@@ -37,3 +37,7 @@ Entire flow can be described according to below:
 4- Once Jenkins job is triggered, the framework scheduler will accept a resource offer and send its task information to Mesos master.
 
 5- Mesos master will launch Jenkins task on a Mesos slave through framework executor. The task would basically be a Jenkins slave JNLP launch command execution.
+
+## Cluster Deployment
+
+There are several methods to 
