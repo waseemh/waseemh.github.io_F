@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cluster-wide continuous integration system with Mesos"
+title: "Cluster-wide Continuous Integration System with Mesos"
 comments: true
 permalink: cluster-wide-ci-system-mesos
 ---
