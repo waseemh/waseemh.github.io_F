@@ -24,7 +24,7 @@ Marathon is "A cluster-wide init and control system for services". Mesos-wise, M
 
 Mesos Jenkins plugin is a Mesos framework for launching on-demand Jenkins slaves, based on current builds' queue. Whenever a new build for a specific Jenkins job is started, Mesos-Jenkins plugin will dynamically launch a Jenkins slave on a cluster node and execute the required job. Note that unlike standard master-slave Jenkins setup, there are no predefined Jenkins slaves on a Mesos-Jenkins setup. Jenkins master is able to schedule jobs on dynamically-launched slaves.
 
-## Putting it all together
+## Implementation
 
 Entire flow can be described according to below:
 
