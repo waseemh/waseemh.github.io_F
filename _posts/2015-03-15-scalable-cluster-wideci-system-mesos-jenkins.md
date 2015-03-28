@@ -6,7 +6,7 @@ permalink: cluster-wide-ci-system-mesos
 ---
 In this paper you will be introduced to establishing a scalable, fault-tolerant and highly available distributed continuous integration system with efficient resource utilization and isolation. The whole ecosystem is composed of five major components: Apache Mesos, Apache ZooKeeper, Marathon, Jenkins and Docker.
 
-Ecosystem Overview
+## Ecosystem Overview
  
 Apache Mesos is an open source cluster management software which provides dynamic resource sharing and isolation in a cluster environment.
 Mesos abstracts resource sharing by aggregating all available resources in a cluster into one big compute unit. Below diagram describes resource sharing in Mesos, compared to static resource allocation:
@@ -24,9 +24,11 @@ Marathon is "A cluster-wide init and control system for services". Mesos-wise, M
 
 Mesos Jenkins plugin is a Mesos framework for launching on-demand Jenkins slaves, based on current builds' queue. Whenever a new build for a specific Jenkins job is started, Mesos-Jenkins plugin will dynamically launch a Jenkins slave on a cluster node and execute the required job. Note that unlike standard master-slave Jenkins setup, there are no predefined Jenkins slaves on a Mesos-Jenkins setup. Jenkins master is able to schedule jobs on dynamically-launched slaves.
 
+## Putting it all together
+
 Entire flow can be described according to below:
 
-1- Launch a Jenkins master instance as a service on a Mesos slave using Marathon.
+1- Launch a Jenkins master instance as a service on a Mesos slave using Marathon framework.
 
 2- Install Mesos plugin on Jenkins master and register it as Mesos framework in Mesos master. Jenkins framework scheduler can now receive resource offers from Mesos master.
 
