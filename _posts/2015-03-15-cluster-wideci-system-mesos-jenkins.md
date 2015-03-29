@@ -42,3 +42,4 @@ Entire flow can be described according to below phases:
 
 There are several ways to setup and deploy a Mesos cluster. For cloud deployments, Mesosphere provides free deployment services of Mesos clusters for various cloud providers including AWS, DigitalOcean and Google Cloud Platform. 
 If you are not using a cloud provider, you may setup a cluster with a configuration management tools such as Puppet, Chef or Ansible. All of these tools include addons for setting up a Mesos cluster.
+Alternatively, you may manually configure your own Mesos cluster. 
