@@ -37,11 +37,13 @@ But when compared with other advanced assertion Java open source libraries such 
 ## Failure Strategies
 
 Truth has expanded test assertion beyond its traditional definition. An assertion in Truth is a 'test verb' which asserts on a 'subject' (a subject is the object under test, i.e: a collection, an Integer, a User object).
-Other test verbs provided by Truth are 'Assumption' and 'Expectation'. Each of these verbs defines how a test will behave upon failure, AKA 'Failure Strategy':
+Other test verbs provided by Truth are 'Assumption' and 'Expectation'. 
 
-  Assertion failure strategy: the normal behavior you would expect from an assertion - fail the test and report error.
-  Assumption failure strategy: skip test upon failure without reporting an error.
-  Expectation failure strategy: continue to run the test upon failure, but report an error when test is completed.
+Each of these verbs defines how a test will behave upon failure, AKA 'Failure Strategy':
+
+  - Assertion failure strategy: the normal behavior you would expect from an assertion - fail the test and report error.
+  - Assumption failure strategy: skip test upon failure without reporting an error.
+  - Expectation failure strategy: continue to run the test upon failure, but report an error when test is completed.
 
 You can also implement your own failure strategy and use it in a test verb (more on that later).
 
