@@ -36,8 +36,8 @@ But when compared with other advanced assertion Java open source libraries such 
 
 ## Failure Strategies
 
-Truth has expanded test assertion beyond its traditional definition. An assertion in Truth is a 'test verb' which asserts on a 'subject' (a subject is the object under test, i.e: a collection, an Integer, a User object).
-Other test verbs provided by Truth are 'Assumption' and 'Expectation'. 
+Truth has expanded test assertion beyond its traditional definition. An assertion in Truth is a __'test verb'__ which asserts on a __'subject'__ (a subject is the object under test, i.e: a collection, an Integer, a User object).
+Other test verbs provided by Truth are __'Assumption'__ and __'Expectation'__. 
 
 Each of these verbs defines how a test will behave upon failure, AKA __'Failure Strategy'__:
 
