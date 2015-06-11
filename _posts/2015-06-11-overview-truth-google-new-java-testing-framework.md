@@ -26,7 +26,7 @@ Additionally, API provides advanced assertions which are not available in JUnit:
 
 As you can see, the fluent API allows you to compose complex, yet readable propositions.
 
-For a full list of built-in propositions.
+For a [full list](http://google.github.io/truth/usage/#built-in-propositions) of built-in propositions.
 
 When compared with JUnit+Hamcrest assertions, it appears that Truth's fluent API is slightly better:
 
