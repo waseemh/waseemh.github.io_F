@@ -30,8 +30,7 @@ For a full list of built-in propositions.
 
 When compared with JUnit+Hamcrest assertions, it appears that Truth's fluent API is slightly better:
 
-Assert.assertThat(0, is(lessThan(1))); //JUnit+Hamcrest
-ASSERT.that(0).isLessThan(1); //Truth
+{% gist f7800ac4f1130bd8ee99 %}
 
 But when compared with other advanced assertion Java open source libraries such as AssertJ or FEST, Truth's fluent API doesn't provide any significant enhancements.
 
@@ -55,8 +54,7 @@ In order to switch to a different failure strategy (ASSERT is default), you can 
 If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message. 
 For example, if you want to assert that a list is empty but still display a specific message in case of error:
 
-List<User> userList = userRepository.getUsersBelowAge(age);
-ASSERT.withFailureMessage("Repository should not contain any registered users with age below " + age).that(userList).isEmpty();
+{% gist 2aa04d032b152ee3499c %}
 
 ## Extensible Assertions
 
@@ -65,35 +63,15 @@ Assertions are very modular in Truth -  you can define your own domain-specific 
 
 Creating a custom test verb by extending TestVerb class:
 
-public class MyVerb extends TestVerb {
-    //create test verb as a static variable with 'throw assertion error' failure strategy
-    public static final MyVerb MY_VERB_ASSERT = new MyVerb(Truth.THROW_ASSERTION_ERROR);
-
-    public MyVerb(FailureStrategy failureStrategy) {
-        super(failureStrategy);
-    }
-}
+{% gist 4379f941b6550cb08183 %}
 
 Creating a custom subject by extending Subject class:
 
-public class UserSubject extends Subject<UserSubject, User> {
-
-    public UserSubject(FailureStrategy failureStrategy, User subject) {
-        super(failureStrategy, subject);
-    }
-
-    @Override public void isEqualTo(User other) {
-        if (getSubject().getName() != other.getName()) {
-            fail("is equal to", getSubject(), other);
-        }
-    }
-}
+{% gist 9764b24fdb02c92c9626 %}
 
 Use custom verb and subject in a test:
 
-@Test public void userTypeProposition() {
-    MY_VERB_ASSERT.that(new User("John","Doe")).isEqualTo(new User("Jane","Doe"));
-}
+{% gist 07c808831abd85807cd6 %}
 
 ## Summary
 
