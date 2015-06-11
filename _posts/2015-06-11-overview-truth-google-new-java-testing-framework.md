@@ -4,12 +4,12 @@ title: "An overview of 'Truth', Google's new Java testing framework"
 comments: true
 permalink: overview-truth-google-new-testing-framework
 ---
-Although still considered a very new project, it was interesting to see what does Truth, a new testing framework by Google, pioneer in the world of test automation.
+Although still considered a very new project, it was interesting to see what does [Truth](https://google.github.io/truth/), a new testing framework by Google, pioneer in the world of test automation.
 
 'Truth' is a Java testing framework with an aim to make test assertions and failures more readable.
 It is not a fully-featured testing framework, but it can be integrated with any type of test and with any testing framework.
 
-Truth comes with two major features: Fluent Assertions API and Failure Strategies
+Truth comes with two major features: __Fluent Assertions API__ and __Failure Strategies__
 
 ## Fluent Assertions API
 
@@ -32,18 +32,18 @@ When compared with JUnit+Hamcrest assertions, it appears that Truth's fluent API
 
 {% gist f7800ac4f1130bd8ee99 %}
 
-But when compared with other advanced assertion Java open source libraries such as AssertJ or FEST, Truth's fluent API doesn't provide any significant enhancements.
+But when compared with other advanced assertion Java open source libraries such as [AssertJ](http://joel-costigliola.github.io/assertj/) or [FEST](https://code.google.com/p/fest/), Truth's fluent API doesn't provide any significant enhancements.
 
 ## Failure Strategies
 
 Truth has expanded test assertion beyond its traditional definition. An assertion in Truth is a 'test verb' which asserts on a 'subject' (a subject is the object under test, i.e: a collection, an Integer, a User object).
 Other test verbs provided by Truth are 'Assumption' and 'Expectation'. 
 
-Each of these verbs defines how a test will behave upon failure, AKA 'Failure Strategy':
+Each of these verbs defines how a test will behave upon failure, AKA __'Failure Strategy'__:
 
-  - Assertion failure strategy: the normal behavior you would expect from an assertion - fail the test and report error.
-  - Assumption failure strategy: skip test upon failure without reporting an error.
-  - Expectation failure strategy: continue to run the test upon failure, but report an error when test is completed.
+  - __Assertion failure strategy__: the normal behavior you would expect from an assertion - fail the test and report error.
+  - __Assumption failure strategy__: skip test upon failure without reporting an error.
+  - __Expectation failure strategy__: continue to run the test upon failure, but report an error when test is completed.
 
 You can also implement your own failure strategy and use it in a test verb (more on that later).
 
@@ -53,7 +53,8 @@ In order to switch to a different failure strategy (ASSERT is default), you can 
 
 ## Customizable Failure Messages
 
-If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message. 
+If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message.
+
 For example, if you want to assert that a list is empty but still display a specific message in case of error:
 
 {% gist 2aa04d032b152ee3499c %}
