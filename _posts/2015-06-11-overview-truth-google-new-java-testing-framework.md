@@ -18,31 +18,11 @@ Truth's assertion API allows you to write test assertions in a fluent style.
 The way assertions are composed allow other users to easily understand what the test is trying to assert.
 As a demonstration, let's compare good ol' JUnit assertions with Truth assertions:
 
-Basic assertion:
-
-assertTrue(user.isConnected()); //JUnit
-ASSERT.that(user.isConnected()).isTrue(); //Truth
-
-Collection assertion:
-
-assertTrue(collectionA.contains(q)); //JUnit
-ASSERT.that(collectionA).contains(q); //Truth
-
-Map assertion:
-
-assertEquals("John Doe", userMap.get(id)); //JUnit
-assertThat(userMap).containsEntry(id, "John Doe");//Truth
+{% gist 64811c969907e3d00734 %}
 
 Additionally, API provides advanced assertions which are not available in JUnit:
 
-Composite propositions
-
-ASSERT.that(collectionA).containsExactly(a, b, c, d).inOrder();
-
-Iterative propositions
-
-Set<String> fruits = asList("Apple","Orange","Pomegranate");
-ASSERT.in(fruits).thatEach(STRING).endsWith("e");
+{% gist e817ce1d6e4df0f3289d %}
 
 As you can see, the fluent API allows you to compose complex, yet readable propositions.
 
@@ -68,23 +48,13 @@ You can also implement your own failure strategy and use it in a test verb (more
 
 In order to switch to a different failure strategy (ASSERT is default), you can use ASSUME or EXPECT (as JUnit rule) when writing assertions. For example:
 
-Assumption:
-
-ASSUME.that(4).isLessThan(10);
-
-Expectation (must be first declared as a JUnit Rule using Expect.create()):
-
-@Rule public final Expect EXPECT = Expect.create();
-
-EXPECT.that("apple").contains("r");
-
-EXPECT.that("apple").contains("c");
-
-EXPECT.that("apple").contains("f");
+{% gist 0906a41caa39f381a48d %}
 
 ## Customizable Failure Messages
 
-If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message. For example, if you want to assert that a list is empty but still display a specific message in case of error:
+If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message. 
+For example, if you want to assert that a list is empty but still display a specific message in case of error:
+
 List<User> userList = userRepository.getUsersBelowAge(age);
 ASSERT.withFailureMessage("Repository should not contain any registered users with age below " + age).that(userList).isEmpty();
 
