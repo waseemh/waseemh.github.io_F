@@ -7,7 +7,7 @@ title: Home
 
 <h3>Papers</h3>
 {% for post in site.posts %}
-  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
+  {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})<br/>
 {% endfor %}
 
 <h3>Open source</h3>
