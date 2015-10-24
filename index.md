@@ -2,15 +2,15 @@
 layout: default
 title: Home
 ---
-<h3>About</h3>
+<h2>About</h2>
 <p> this is about me </p>
 
-<h3>Papers</h3>
+<h2>Papers</h2>
 {% for post in site.posts %}
-  {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})<br/>
+   [ {{ post.title }} ]({{ post.url }}) ({{ post.date | date_to_string }})<br/>
 {% endfor %}
 
-<h3>Open source</h3>
+<h2>Open source</h2>
 ##[lxc-java](https://github.com/waseemh/lxc-java)
 Java API for LXC (Linux Containers).
 
