@@ -5,7 +5,7 @@ title: Home
 <h2>About</h2>
 <p> this is about me </p>
 
-<h2>Articles and Posts</h2>
+<h2>Articles</h2>
 {% for post in site.posts %}
    [ {{ post.title }} ]({{ post.url }}) ({{ post.date | date_to_string }})
 {% endfor %}
