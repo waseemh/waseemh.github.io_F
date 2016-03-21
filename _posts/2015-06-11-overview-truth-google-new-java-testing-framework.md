@@ -53,16 +53,15 @@ In order to switch to a different failure strategy (ASSERT is default), you can 
 
 ## Customizable Failure Messages
 
-If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message.
-
-For example, if you want to assert that a list is empty but still display a specific message in case of error:
+If an assertion error message isn't clear enough or too general, you can override it using withFailureMessage(message). Method invocation should be appended to the assertion with an appropriate error message. For example, if you want to assert that a list is empty but still display a specific message in case of error:
 
 {% gist 2aa04d032b152ee3499c %}
 
 ## Extensible Assertions
 
 Truth is a very extensible framework as it provides an abstraction of test assertion.
-Assertions are very modular in Truth -  you can define your own domain-specific assertion API by implementing custom test verbs, subjects and failure strategies.
+Assertions are very modular in Truth -  you can define your own domain-specific assertion API by implementing custom test verbs, subjects and failure strategies. 
+
 
 Creating a custom test verb by extending TestVerb class:
 
