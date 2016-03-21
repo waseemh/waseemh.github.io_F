@@ -311,7 +311,7 @@ tbody tr:nth-child(odd) th {
 
 .page,
 .post {
-  margin-bottom: 4em;
+  margin-bottom: 4em; margin-right: 100px;
 }
 
 .post {  max-width: 90%; }
