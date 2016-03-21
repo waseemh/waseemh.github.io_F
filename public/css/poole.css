@@ -314,7 +314,7 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 4em;
 }
 
-.post {  max-width: 70%; }
+.post {  max-width: 90%; }
 
 /* Blog post or page title */
 .page-title,
