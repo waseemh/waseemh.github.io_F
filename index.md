@@ -6,7 +6,8 @@ title: Home
 <hr />
 
 {% for post in site.posts %}
-   ## {{ post.title }} ##
+   {{ post.title }}
+   =============
    <span>{{ post.date | date_to_string }}</span>
    {{ post.content }}
 {% endfor %}
