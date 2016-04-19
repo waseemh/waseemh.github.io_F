@@ -3,9 +3,10 @@ layout: default
 title: Home
 ---
 
-<h2>Blog</h2>
 {% for post in site.posts %}
-   [ {{ post.title }} ]({{ post.url }}) ({{ post.date | date_to_string }})
+   <h3> {{ post.title }} ]({{ post.url }})</h3> 
+   <span>({{ post.date | date_to_string }})</span>
+   {{ post.content }}
 {% endfor %}
 
 <h2>Open Source Projects</h2>
