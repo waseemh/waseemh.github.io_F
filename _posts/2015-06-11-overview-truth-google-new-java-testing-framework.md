@@ -65,8 +65,16 @@ Assertions are very modular in Truth -  you can define your own domain-specific 
 
 
 Creating a custom test verb by extending TestVerb class:
+{% highlight java %}
+public class MyVerb extends TestVerb {
+    //create test verb as a static variable with 'throw assertion error' failure strategy
+    public static final MyVerb MY_VERB_ASSERT = new MyVerb(Truth.THROW_ASSERTION_ERROR);
 
-{% gist 4379f941b6550cb08183 %}
+    public MyVerb(FailureStrategy failureStrategy) {
+        super(failureStrategy);
+    }
+}
+{% endhighlight %}
 
 Creating a custom subject by extending Subject class:
 
