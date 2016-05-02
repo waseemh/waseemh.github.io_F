@@ -5,7 +5,7 @@ title: Home
 
 {% for post in site.posts %}
    <h2> [ {{ post.title }} ]({{ post.url }})</h2> 
-   <span>({{ post.date | date_to_string }})</span>
+   <span class="post-date">{{ page.date | date_to_string }}</span>
    <p>{{ post.description }}</p>
 {% endfor %}
 
