@@ -3,7 +3,6 @@ layout: post
 title: "Cluster-wide Continuous Integration System with Mesos"
 comments: true
 permalink: cluster-wide-ci-system-mesos
-description: "In this post you will be introduced to establishing a scalable, fault-tolerant and highly available distributed continuous integration system with efficient resource utilization and isolation. The whole ecosystem is composed of five major components: Apache Mesos, Apache ZooKeeper, Marathon, Jenkins and Docker."
 ---
 In this post you will be introduced to establishing a scalable, fault-tolerant and highly available distributed continuous integration system with efficient resource utilization and isolation. The whole ecosystem is composed of five major components: Apache Mesos, Apache ZooKeeper, Marathon, Jenkins and Docker.
 
