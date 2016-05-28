@@ -4,7 +4,7 @@ title: Home
 ---
 
 {% for post in site.posts %}
-   <h3> [ {{ post.title }} ]({{ post.url }})</h3> 
+   <h3>[ {{ post.title }} ]({{ post.url }})</h3> 
    <span class="post-date">{{ page.date | date_to_string }}</span>
 {% endfor %}
 
