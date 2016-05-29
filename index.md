@@ -4,7 +4,7 @@ title: Home
 ---
 
 {% for post in site.posts %}
-   <h3 style="display: inline;"> <a href="{{ post.url }}">{{ post.title }}</a> </h3> 
+   <h3 style="float:left; display: inline;"> <a href="{{ post.url }}">{{ post.title }}</a> </h3> 
    <span style="display: inline;">({{ post.date | date_to_string }})</span>
 {% endfor %}
 
