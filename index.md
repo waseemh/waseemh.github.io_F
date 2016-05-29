@@ -5,7 +5,7 @@ title: Home
 
 {% for post in site.posts %}
    <h3> <a href="{{ post.url }}">{{ post.title }}</a> </h3> 
-   <span style="post-date">({{ post.date | date_to_string }})</span>
+   <span class="post-date">({{ post.date | date_to_string }})</span>
 {% endfor %}
 
 <h2>Open Source Projects</h2>
