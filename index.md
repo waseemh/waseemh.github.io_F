@@ -4,8 +4,8 @@ title: Home
 ---
 
 {% for post in site.posts %}
-   <h3 style="float:left; display: inline;"> <a href="{{ post.url }}">{{ post.title }}</a> </h3> 
-   <span style="display: inline;">({{ post.date | date_to_string }})</span>
+   <h3> <a href="{{ post.url }}">{{ post.title }}</a> </h3> 
+   <span style="post-date">({{ post.date | date_to_string }})</span>
 {% endfor %}
 
 <h2>Open Source Projects</h2>
