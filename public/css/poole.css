@@ -264,6 +264,17 @@ tbody tr:nth-child(odd) th {
   margin-right: auto;
 }
 
+#main {
+float:left;
+width:80%;
+background:#9c9;
+}
+
+#sidebar {
+float:right;
+width:20%;
+background:#c9c;
+}
 
 /*
  * Masthead
