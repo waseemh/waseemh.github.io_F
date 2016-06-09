@@ -275,6 +275,10 @@ float:left;
 width:20%;
 }
 
+#sidebar ul {
+  list-style: none;
+}
+
 /*
  * Masthead
  *
