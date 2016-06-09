@@ -18,9 +18,11 @@
 
 <div id="sidebar">
   <h3>Categories</h3>
-  {% for cat in site.categories %}
+  <ul>
+  {% for cat in site.categories %>
     <li><a href="/category.html#{{cat[0]}}">{{ cat[0] }}</a></li>
 {% endfor %}
+</ul>
 </div>
       <div class="footer">
  
