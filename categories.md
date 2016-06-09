@@ -12,5 +12,4 @@ title: Categories
       {% endfor %}
     {% endfor %}
     </ul>
-  </li>
 {% endfor %}
