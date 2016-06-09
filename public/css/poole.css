@@ -277,6 +277,8 @@ width:20%;
 
 #sidebar ul {
   list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 
 /*
