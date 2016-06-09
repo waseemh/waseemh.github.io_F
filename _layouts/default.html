@@ -17,7 +17,9 @@
 </div>
 
 <div id="sidebar">
-  THIS IS SIDEBAR
+  {% for cat in site.categories %}
+    <li>{{ cat[0] }}</li>
+{% endfor %}
 </div>
       <div class="footer">
  
