@@ -273,6 +273,7 @@ width:80%;
 #sidebar {
 float:left;
 width:20%;
+padding-right:10px;
 }
 
 #sidebar ul {
