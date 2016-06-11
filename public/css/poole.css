@@ -267,13 +267,13 @@ tbody tr:nth-child(odd) th {
 
 #main {
 float:right;
-width:70%;
+width:75%;
 }
 
 #sidebar {
 float:left;
-width:30%;
-padding-right:30px;
+width:25%;
+padding-right:40px;
 }
 
 #sidebar ul {
