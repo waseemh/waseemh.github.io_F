@@ -6,11 +6,10 @@ permalink: containerized-mobile-test-environment
 category: Mobile Testing
 ---
 
-# Containerized Mobile Test Environment
-
 Setting up a stable test envirnoment for mobile automation is a hassle. There are many dependent components, trials and errors, and configuration to take care of, until you have a clock-work test environment. execute automated mobile tests continously without facing environment issues.
 
 What if we can isolate the whole environment inside a package and use this package to create multiple instances of the same exact environment on-the-fly? Even better, what if environment can be wiped out once tests are finished, thus ensuring a clean test environment on each execution?
+
 
 In this article, I'm going to explain how we use **Docker** to achieve this. In a nutshell, Docker software allows you to package all your applicative setup inside isolated units, called containers. For more information and installation instructions, refer to Docker website.
 
