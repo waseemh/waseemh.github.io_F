@@ -32,6 +32,7 @@ In case mutiple containers will be started at once, each container should expose
 $ docker run -d -p 4723:4723 -p 5900:5900 waseemh/docker-mobile-appium:v0.1
 $ docker run -d -p 4724:4723 -p 5901:5900 waseemh/docker-mobile-appium:v0.1
 ```
+
 ### Building Your Own Image
 
 
