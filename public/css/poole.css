@@ -428,3 +428,12 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  #sidebar {
+    display: none;
+  }
+  #main {
+    margin-right: 0;
+  }
+}
