@@ -4,7 +4,6 @@ title: "Virtualized Web Automation Stack: Vagrant + Ubuntu + LXC + Headless FF/C
 comments: true
 permalink: virtualized-web-automation-stack
 ---
-
 In this tutorial we are going to show, step by step, how to setup a fully functional web automation execution process in a virtualized environment.
 
 Creating a robust and scalable execution environment for automation tests is a very essential phase. After tests are written, they need to be executed on frequent basis over multiple environments. In automated tests for web, there is an additional need to cover different browsers and platforms. 
