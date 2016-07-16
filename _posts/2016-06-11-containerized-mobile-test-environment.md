@@ -4,6 +4,7 @@ title: "Containerized Mobile Test Environment"
 comments: true
 permalink: containerized-mobile-test-environment
 category: Mobile Testing
+intro: "Creating an isolated test environment for mobile automation using Docker"
 ---
 
 Setting up a stable test envirnoment for mobile automation is a hassle. There are many dependent components, trials and errors, and configuration to take care of, until you have a clock-work test environment. execute automated mobile tests continously without facing environment issues.
