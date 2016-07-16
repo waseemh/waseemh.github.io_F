@@ -3,6 +3,7 @@ layout: post
 title: "Virtualized Web Automation Stack: Vagrant + Ubuntu + LXC + Headless FF/Chrome + Selenium Grid"
 comments: true
 permalink: virtualized-web-automation-stack
+categories: Automation
 ---
 
 In this tutorial we are going to show, step by step, how to setup a fully functional web automation execution process in a virtualized environment.
