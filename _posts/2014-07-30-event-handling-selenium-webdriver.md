@@ -7,6 +7,7 @@ tags: selenium, webdriver
 permalink: event-handling-selenium-webdriver
 ---
 Hooking into events in an automated testing environment can be helpful for debugging, logging and investigation purposes. Moreover, when it comes to executing automated web tests, these aspects play even more important role in maintaining tests and analyzing results.
+
 If you are developing web tests based on Selenium WebDriver framework, I highly recommend using its built-in event mechanism. Adapting such mechanism in your tests infrastructure can be benefcial in the long run, in terms of maintenance and analysis.
 
 Selenium Web Driver 2.0 framework allows to track different events during test execution such as website navigation, elements interactions and thrown exceptions.
