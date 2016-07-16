@@ -5,6 +5,7 @@ comments: true
 category: Selenium
 tags: selenium, webdriver
 permalink: event-handling-selenium-webdriver
+intro: "How to integrate event handling mechanism into Selenium based tests"
 ---
 Hooking into events in an automated testing environment can be helpful for debugging, logging and investigation purposes. Moreover, when it comes to executing automated web tests, these aspects play even more important role in maintaining tests and analyzing results.
 
