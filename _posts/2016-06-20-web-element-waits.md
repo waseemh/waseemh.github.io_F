@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "WebElement Waits"
+intro: "In this short tutorial we will extend Selenium WebDriver API to apply wait conditions on WebElement objects. "
 ---
 
 In this short tutorial we will extend Selenium WebDriver API to apply wait conditions on [WebElement](http://google.com) objects. 
