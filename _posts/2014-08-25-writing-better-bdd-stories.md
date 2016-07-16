@@ -3,6 +3,7 @@ layout: post
 title: "Writing Better BDD Stories"
 comments: true
 permalink: writing-better-bdd-stories
+intro: "BDD practitioners may tend to underestimate the importance of writing high-quality stories. They rush too soon to explore BDD frameworks in the market, while they miss the essences of this methodology."
 ---
 
 [BDD](http://en.wikipedia.org/wiki/Behavior-driven_development) (behavior driven development) empowers collaboration between developers, testers, analysts, project managers and stakeholders. As a result, these parties are able to correctly define features' requirements, evaluate their business benefit and set acceptance criteria for quality. 
