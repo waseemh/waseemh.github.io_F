@@ -266,8 +266,8 @@ tbody tr:nth-child(odd) th {
 }
 
 #main {
-float:right;
-width:75%;
+float:left;
+width:90%;
 }
 
 #sidebar {
