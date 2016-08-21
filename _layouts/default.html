@@ -15,33 +15,6 @@
 <div id="main">
       {{ content }}
 </div>
-
-<div id="sidebar">
-  <p>
-  About test automation, software engineering and other technical topics.
-  </p>
-  <h3>Categories</h3>
-<ul>
-  {% for cat in site.categories %}
-    <li><a href="/categories#{{cat[0]}}">{{ cat[0] }}</a></li>
-  {% endfor %}
-</ul>
-
-<h3>Subscribe</h3>
- <form action="https://tinyletter.com/waseemh" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/waseemh', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-   <p><label for="tlemail">Receive latests updates to your mailbox</label></p>
-   <input placeholder="Email address" type="text" style="width:110px" name="email" id="tlemail" />
-   <input type="hidden" value="1" name="embed"/>
-   <input type="submit" value="Subscribe" /><p>
-</form>
-         
-
-<h3>Open Source Projects</h3>
-<ul>
-<li><a href="https://github.com/waseemh/lxc-java)">lxc-java</a> - Java API for LXC (Linux Containers)</li>
-<li><a href="https://github.com/waseemh/webdriver-assert">webdriver-assert</a> - JUnit assertions library for Selenium WebDriver 2.0</li>
-</ul>
-</div>
       <div class="footer">
  
       </div>
